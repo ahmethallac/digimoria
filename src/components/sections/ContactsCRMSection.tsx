@@ -20,61 +20,66 @@ const avatarColors = [
   "bg-red-100 text-red-600",
   "bg-yellow-100 text-yellow-600",
   "bg-slate-100 text-slate-600",
+  "bg-emerald-100 text-emerald-700",
+  "bg-blue-100 text-blue-700",
+  "bg-violet-100 text-violet-700",
+  "bg-amber-100 text-amber-700",
+  "bg-pink-100 text-pink-700",
+  "bg-teal-100 text-teal-700",
 ];
 
-const names = ["SK", "JM", "ER", "DL", "MB", "AK", "LS", "TW", "NR", "CP", "HG", "FT", "RB", "WC", "KP", "OZ", "VN", "QD"];
+const names = ["SK", "JM", "ER", "DL", "MB", "AK", "LS", "TW", "NR", "CP", "HG", "FT", "RB", "WC", "KP", "OZ", "VN", "QD", "PL", "XR", "YB", "ZM", "GT", "UH"];
 
 const ContactsPoolSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-10 md:py-16">
+    <section className="relative py-6 md:py-10">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-8">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 02</span>
-          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-3 text-foreground">
+        <div className="text-center mb-5">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-primary font-semibold">Stage 02</span>
+          <h2 className="text-xl md:text-2xl font-bold font-display mt-1.5 mb-2 text-foreground">
             Contacts Pool
           </h2>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+          <p className="text-xs text-muted-foreground max-w-xs mx-auto">
             All leads merge into one centralized intelligence hub
           </p>
         </div>
 
-        <div className="glass-strong rounded-2xl p-5 md:p-6 max-w-md mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-            <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-            <span className="text-[10px] text-muted-foreground ml-2 font-display">DigiMoria Contacts Pool</span>
+        <div className="glass-strong rounded-2xl p-4 max-w-sm mx-auto">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-2 h-2 rounded-full bg-red-400" />
+            <div className="w-2 h-2 rounded-full bg-amber-400" />
+            <div className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-[9px] text-muted-foreground ml-2 font-display">DigiMoria Contacts Pool</span>
           </div>
           
-          <div className="grid grid-cols-6 gap-2">
+          <div className="grid grid-cols-6 gap-1.5">
             {revealed && names.map((name, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className={`rounded-lg p-2 flex items-center justify-center text-[10px] font-bold ${avatarColors[i % avatarColors.length]} animate-node-pulse`}
-                style={{ animationDelay: `${i * 0.3}s` }}
+                transition={{ duration: 0.25, delay: i * 0.04 }}
+                className={`rounded-lg p-1.5 flex items-center justify-center text-[9px] font-bold ${avatarColors[i % avatarColors.length]}`}
               >
                 {name}
               </motion.div>
             ))}
           </div>
 
-          <div className="flex gap-5 mt-4 pt-3 border-t border-border">
+          <div className="flex gap-4 mt-3 pt-2.5 border-t border-border">
             <div>
-              <div className="text-base font-bold font-display text-foreground">2,847</div>
-              <div className="text-[10px] text-muted-foreground">Total Contacts</div>
+              <div className="text-sm font-bold font-display text-foreground">2,847</div>
+              <div className="text-[9px] text-muted-foreground">Total Contacts</div>
             </div>
             <div>
-              <div className="text-base font-bold font-display text-primary">+127</div>
-              <div className="text-[10px] text-muted-foreground">Today</div>
+              <div className="text-sm font-bold font-display text-primary">+127</div>
+              <div className="text-[9px] text-muted-foreground">Today</div>
             </div>
             <div>
-              <div className="text-base font-bold font-display text-foreground">89%</div>
-              <div className="text-[10px] text-muted-foreground">Match Rate</div>
+              <div className="text-sm font-bold font-display text-foreground">89%</div>
+              <div className="text-[9px] text-muted-foreground">Match Rate</div>
             </div>
           </div>
         </div>

@@ -18,42 +18,42 @@ const Index = () => {
       <Navbar />
       <HeroSection />
 
-      {/* Pipeline Flow - Paired Rows on Desktop */}
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Row 1: Lead Sources + Contacts Pool */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      {/* Pipeline Flow */}
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
+        {/* Row 1: Lead Sources → Contacts Pool */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           <LeadSourcesSection />
           <ContactsPoolSection />
         </div>
 
-        <FlowConnector />
+        <FlowConnector direction="right-to-left" />
 
-        {/* Row 2: Prospect Data + AI Communication */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        {/* Row 2: Prospect Data ← AI Communication */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           <ProspectDataSection />
           <AICommunicationSection />
         </div>
 
-        <FlowConnector />
+        <FlowConnector direction="left-to-right" />
 
-        {/* Row 3: Qualified Leads Comparison (full width) */}
+        {/* Row 3: Qualified Leads (full width) */}
         <QualifiedLeadsSection />
 
-        <FlowConnector />
+        <FlowConnector direction="right-to-left" />
 
-        {/* Row 4: Landing Pages + Calendar Booking */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        {/* Row 4: Landing Pages → Calendar Booking */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           <LandingPagesSection />
           <CalendarBookingSection />
         </div>
 
-        <FlowConnector />
+        <FlowConnector direction="left-to-right" />
 
         {/* Row 5: CRM Pipeline (full width) */}
         <CRMPipelineSection />
       </div>
 
-      {/* Final Result - full bleed */}
+      {/* Final Result */}
       <SalesCalendarSection />
       <Footer />
     </div>

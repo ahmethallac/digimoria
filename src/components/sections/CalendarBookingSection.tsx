@@ -1,80 +1,76 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import FlowLine from "@/components/FlowLine";
-import { Calendar, Check } from "lucide-react";
+import { CalendarDays, Clock, MousePointer2, Check } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-const hours = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
-
-const bookedSlots = [
-  { day: 0, hour: 1 }, { day: 1, hour: 3 }, { day: 2, hour: 0 },
-  { day: 2, hour: 4 }, { day: 3, hour: 2 }, { day: 4, hour: 1 },
-  { day: 4, hour: 5 }, { day: 0, hour: 4 }, { day: 3, hour: 0 },
-];
+const timeSlots = ["09:00", "10:30", "13:00", "14:30", "16:00"];
 
 const CalendarBookingSection = () => {
   const { ref, revealed } = useScrollReveal();
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!revealed) return;
+    const timer = setTimeout(() => setSelectedSlot(2), 2000);
+    return () => clearTimeout(timer);
+  }, [revealed]);
 
   return (
-    <section className="relative py-16 md:py-24">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 max-w-4xl mx-auto px-4`}>
-        <div className="text-center mb-12">
+    <section className="relative py-10 md:py-16">
+      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
+        <div className="text-center mb-8">
           <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 07</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display mt-3 mb-4 text-foreground">
-            Automated Meeting Scheduling
+          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-3 text-foreground">
+            Automated Scheduling
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Qualified prospects select available meeting times automatically
+          <p className="text-xs text-muted-foreground max-w-sm mx-auto">
+            Qualified prospects book meetings automatically
           </p>
         </div>
 
-        <div className="glass-strong rounded-2xl p-4 md:p-6 max-w-2xl mx-auto overflow-x-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <Calendar className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold font-display text-foreground">March 2026</span>
+        <div className="glass-strong rounded-2xl p-4 max-w-xs mx-auto relative">
+          <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border">
+            <CalendarDays className="w-4 h-4 text-primary" />
+            <span className="text-xs font-semibold font-display text-foreground">Select a Time</span>
+            <span className="ml-auto text-[10px] text-muted-foreground">March 2026</span>
           </div>
 
-          <table className="w-full text-xs">
-            <thead>
-              <tr>
-                <th className="py-2 text-muted-foreground font-normal" />
-                {days.map((d) => (
-                  <th key={d} className="py-2 text-muted-foreground font-medium">{d}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {hours.map((hour, hi) => (
-                <tr key={hour}>
-                  <td className="py-1 pr-2 text-muted-foreground text-right">{hour}</td>
-                  {days.map((_, di) => {
-                    const isBooked = bookedSlots.some((s) => s.day === di && s.hour === hi);
-                    const slotIndex = bookedSlots.findIndex((s) => s.day === di && s.hour === hi);
-                    return (
-                      <td key={di} className="p-1">
-                        {revealed && isBooked ? (
-                          <motion.div
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: slotIndex * 0.15 + 0.5 }}
-                            className="h-8 bg-primary/10 border border-primary/20 rounded-md flex items-center justify-center"
-                          >
-                            <Check className="w-3 h-3 text-primary" />
-                          </motion.div>
-                        ) : (
-                          <div className="h-8 bg-muted/30 rounded-md" />
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="space-y-1.5">
+            {timeSlots.map((slot, i) => (
+              <motion.div
+                key={slot}
+                initial={{ opacity: 0 }}
+                animate={revealed ? { opacity: 1 } : {}}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                className={`flex items-center gap-2 p-2 rounded-lg text-xs transition-all cursor-pointer ${
+                  selectedSlot === i
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary hover:bg-primary/5 text-foreground"
+                }`}
+              >
+                <Clock className="w-3 h-3" />
+                <span className="font-mono">{slot}</span>
+                {selectedSlot === i && (
+                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="ml-auto">
+                    <Check className="w-3.5 h-3.5" />
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {selectedSlot !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.5 }}
+              className="mt-3 p-2 rounded-lg bg-primary/5 border border-primary/10 text-center"
+            >
+              <div className="text-[10px] text-primary font-medium">✓ Meeting Booked — {timeSlots[selectedSlot]}</div>
+            </motion.div>
+          )}
         </div>
       </div>
-
-      <FlowLine />
     </section>
   );
 };

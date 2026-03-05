@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import FlowLine from "@/components/FlowLine";
 
 const avatarColors = [
   "bg-primary/20 text-primary",
@@ -15,68 +14,71 @@ const avatarColors = [
   "bg-teal-100 text-teal-600",
   "bg-indigo-100 text-indigo-600",
   "bg-fuchsia-100 text-fuchsia-600",
+  "bg-cyan-100 text-cyan-600",
+  "bg-lime-100 text-lime-600",
+  "bg-purple-100 text-purple-600",
+  "bg-red-100 text-red-600",
+  "bg-yellow-100 text-yellow-600",
+  "bg-slate-100 text-slate-600",
 ];
 
-const names = ["SK", "JM", "ER", "DL", "MB", "AK", "LS", "TW", "NR", "CP", "HG", "FT"];
+const names = ["SK", "JM", "ER", "DL", "MB", "AK", "LS", "TW", "NR", "CP", "HG", "FT", "RB", "WC", "KP", "OZ", "VN", "QD"];
 
 const ContactsPoolSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-16 md:py-24">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 max-w-5xl mx-auto px-4`}>
-        <div className="text-center mb-12">
+    <section className="relative py-10 md:py-16">
+      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
+        <div className="text-center mb-8">
           <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 02</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display mt-3 mb-4 text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-3 text-foreground">
             Contacts Pool
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          <p className="text-sm text-muted-foreground max-w-sm mx-auto">
             All leads merge into one centralized intelligence hub
           </p>
         </div>
 
-        {/* Pool Panel */}
-        <div className="glass-strong rounded-2xl p-6 md:p-10 max-w-2xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-amber-400" />
-            <div className="w-3 h-3 rounded-full bg-emerald-400" />
-            <span className="text-xs text-muted-foreground ml-2 font-display">DigiMoria Contacts Pool</span>
+        <div className="glass-strong rounded-2xl p-5 md:p-6 max-w-md mx-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            <span className="text-[10px] text-muted-foreground ml-2 font-display">DigiMoria Contacts Pool</span>
           </div>
           
-          <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
+          <div className="grid grid-cols-6 gap-2">
             {revealed && names.map((name, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`rounded-xl p-3 flex items-center justify-center text-xs font-bold ${avatarColors[i % avatarColors.length]}`}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className={`rounded-lg p-2 flex items-center justify-center text-[10px] font-bold ${avatarColors[i % avatarColors.length]} animate-node-pulse`}
+                style={{ animationDelay: `${i * 0.3}s` }}
               >
                 {name}
               </motion.div>
             ))}
           </div>
 
-          {/* Stats bar */}
-          <div className="flex gap-6 mt-6 pt-4 border-t border-border">
+          <div className="flex gap-5 mt-4 pt-3 border-t border-border">
             <div>
-              <div className="text-lg font-bold font-display text-foreground">2,847</div>
-              <div className="text-xs text-muted-foreground">Total Contacts</div>
+              <div className="text-base font-bold font-display text-foreground">2,847</div>
+              <div className="text-[10px] text-muted-foreground">Total Contacts</div>
             </div>
             <div>
-              <div className="text-lg font-bold font-display text-primary">+127</div>
-              <div className="text-xs text-muted-foreground">Today</div>
+              <div className="text-base font-bold font-display text-primary">+127</div>
+              <div className="text-[10px] text-muted-foreground">Today</div>
             </div>
             <div>
-              <div className="text-lg font-bold font-display text-foreground">89%</div>
-              <div className="text-xs text-muted-foreground">Match Rate</div>
+              <div className="text-base font-bold font-display text-foreground">89%</div>
+              <div className="text-[10px] text-muted-foreground">Match Rate</div>
             </div>
           </div>
         </div>
       </div>
-
-      <FlowLine />
     </section>
   );
 };

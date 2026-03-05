@@ -16,19 +16,19 @@ const CalendarBookingSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-20 md:py-32">
+    <section className="relative py-16 md:py-24">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 max-w-4xl mx-auto px-4`}>
         <div className="text-center mb-12">
-          <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">Stage 06</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display mt-3 mb-4 glow-text-purple">
-            Calendar Booking
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 07</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display mt-3 mb-4 text-foreground">
+            Automated Meeting Scheduling
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Meetings are scheduled automatically into your team's calendar
+            Qualified prospects select available meeting times automatically
           </p>
         </div>
 
-        <div className="glass-strong rounded-2xl p-4 md:p-6 max-w-2xl mx-auto glow-purple overflow-x-auto">
+        <div className="glass-strong rounded-2xl p-4 md:p-6 max-w-2xl mx-auto overflow-x-auto">
           <div className="flex items-center gap-2 mb-4">
             <Calendar className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold font-display text-foreground">March 2026</span>
@@ -57,12 +57,12 @@ const CalendarBookingSection = () => {
                             initial={{ opacity: 0, scale: 0 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: slotIndex * 0.15 + 0.5 }}
-                            className="h-8 bg-gradient-to-r from-primary/40 to-accent/30 rounded-md flex items-center justify-center"
+                            className="h-8 bg-primary/10 border border-primary/20 rounded-md flex items-center justify-center"
                           >
-                            <Check className="w-3 h-3 text-accent" />
+                            <Check className="w-3 h-3 text-primary" />
                           </motion.div>
                         ) : (
-                          <div className="h-8 bg-muted/10 rounded-md" />
+                          <div className="h-8 bg-muted/30 rounded-md" />
                         )}
                       </td>
                     );

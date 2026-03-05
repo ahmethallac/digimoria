@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -17,14 +17,22 @@ const services = [
 const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 glass-strong"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass-strong shadow-sm" : "bg-transparent"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -34,7 +42,7 @@ const Navbar = () => {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link to="/" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
               Home
             </Link>
             <div
@@ -42,7 +50,7 @@ const Navbar = () => {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              <button className="flex items-center gap-1 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
                 Services <ChevronDown className="w-3 h-3" />
               </button>
               <AnimatePresence>
@@ -52,13 +60,13 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-72 glass-strong rounded-xl overflow-hidden"
+                    className="absolute top-full left-0 mt-2 w-72 bg-background rounded-xl border border-border shadow-xl overflow-hidden"
                   >
                     {services.map((s) => (
                       <Link
                         key={s.label}
                         to={s.href}
-                        className="block px-4 py-3 text-sm text-foreground/70 hover:text-foreground hover:bg-primary/10 transition-colors"
+                        className="block px-4 py-3 text-sm text-foreground/70 hover:text-foreground hover:bg-secondary transition-colors"
                       >
                         {s.label}
                       </Link>
@@ -67,15 +75,15 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </div>
-            <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link to="/about" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
               About
             </Link>
-            <Link to="/contact" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <Link to="/contact" className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
               Contact
             </Link>
             <Link
               to="/contact"
-              className="px-5 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 transition-opacity"
+              className="px-5 py-2 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-md shadow-primary/15"
             >
               Get Started
             </Link>
@@ -95,7 +103,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden glass-strong overflow-hidden"
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-3">
               <Link to="/" onClick={() => setMobileOpen(false)} className="block text-sm text-foreground/80">Home</Link>

@@ -6,9 +6,8 @@ const QualifiedLeadsSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-8 md:py-12">
+    <section className="relative py-12 md:py-16">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 text-center`}>
-        <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 05</span>
         <h2 className="text-2xl md:text-4xl font-bold font-display mt-2 mb-3 text-foreground">
           Same Budget — 30× More Qualified Meetings
         </h2>

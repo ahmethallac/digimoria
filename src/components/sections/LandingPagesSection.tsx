@@ -40,7 +40,7 @@ const LandingPagesSection = () => {
     <section className="relative py-8 md:py-12">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
         <div className="text-center mb-6">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 06</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 05</span>
           <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
             Custom Landing Pages
           </h2>
@@ -57,7 +57,6 @@ const LandingPagesSection = () => {
           >
             {[...pages, ...pages].map((page, i) => (
               <div key={i} className="glass-strong rounded-xl overflow-hidden min-w-[240px] flex-shrink-0">
-                {/* Browser chrome */}
                 <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border bg-secondary/30">
                   <div className="w-2 h-2 rounded-full bg-red-300" />
                   <div className="w-2 h-2 rounded-full bg-amber-300" />
@@ -66,7 +65,6 @@ const LandingPagesSection = () => {
                     <Globe className="w-2.5 h-2.5 text-muted-foreground/40" />
                   </div>
                 </div>
-                {/* Page content */}
                 <div className={`h-24 bg-gradient-to-br ${page.gradient} flex items-center justify-center relative`}>
                   <div className={`w-12 h-1.5 ${page.accent} rounded opacity-30`} />
                   {i === 1 && (

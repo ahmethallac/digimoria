@@ -27,9 +27,8 @@ const Index = () => {
         <Navbar />
         <HeroSection />
 
-        {/* Pipeline Flow */}
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          {/* Row 1: Lead Sources → Contacts Pool */}
+          {/* Row 1: Stage 1 Lead Sources → Stage 2 Contacts Pool */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <LeadSourcesSection />
             <ContactsPoolSection />
@@ -37,7 +36,7 @@ const Index = () => {
 
           <FlowConnector direction="right-to-left" />
 
-          {/* Row 2: Prospect Data ← AI Communication */}
+          {/* Row 2: Stage 3 Prospect Data ← Stage 4 AI Communication */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <ProspectDataSection />
             <AICommunicationSection />
@@ -45,25 +44,26 @@ const Index = () => {
 
           <FlowConnector direction="left-to-right" />
 
-          {/* Row 3: Qualified Leads (full width) */}
-          <QualifiedLeadsSection />
-
-          <FlowConnector direction="right-to-left" />
-
-          {/* Row 4: Landing Pages → Calendar Booking */}
+          {/* Row 3: Stage 5 Landing Pages → Stage 6 Calendar Booking */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <LandingPagesSection />
             <CalendarBookingSection />
           </div>
 
-          <FlowConnector direction="left-to-right" />
+          <FlowConnector direction="right-to-left" />
 
-          {/* Row 5: CRM Pipeline (full width) */}
+          {/* Row 4: Stage 7 CRM Pipeline */}
           <CRMPipelineSection />
         </div>
 
         {/* Final Result */}
         <SalesCalendarSection />
+
+        {/* Comparison / Proof of Performance */}
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <QualifiedLeadsSection />
+        </div>
+
         <Footer />
       </div>
     </div>

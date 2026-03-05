@@ -6,97 +6,93 @@ interface FlowConnectorProps {
 }
 
 const FlowConnector = ({ direction = "straight" }: FlowConnectorProps) => {
-  const { ref, revealed } = useScrollReveal(0.3);
+  const { ref, revealed } = useScrollReveal(0.1);
 
   if (direction === "straight") {
     return (
-      <div ref={ref} className="flex justify-center py-2 md:py-3">
-        <div className="flex flex-col items-center gap-0.5">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={revealed ? { opacity: [0.2, 0.6, 0.2], scale: 1 } : {}}
-              transition={{ duration: 1.5, delay: i * 0.15, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-primary/40"
+      <div ref={ref} className="flex justify-center py-3 md:py-4">
+        <svg width="6" height="60" viewBox="0 0 6 60" className="overflow-visible">
+          <line x1="3" y1="0" x2="3" y2="52" stroke="hsl(270, 80%, 55%)" strokeWidth="2" strokeOpacity="0.15" />
+          {/* Arrowhead */}
+          <polygon points="0,50 3,58 6,50" fill="hsl(270, 80%, 55%)" fillOpacity="0.2" />
+          {/* Flowing particle */}
+          {revealed && (
+            <motion.circle
+              cx="3" r="2.5"
+              fill="hsl(270, 80%, 55%)"
+              animate={{ cy: [0, 55], opacity: [0, 0.6, 0.6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             />
-          ))}
-          <motion.div
-            initial={{ height: 0 }}
-            animate={revealed ? { height: 20 } : {}}
-            transition={{ duration: 0.5 }}
-            className="w-px bg-gradient-to-b from-primary/30 to-transparent"
-          />
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={`b-${i}`}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={revealed ? { opacity: [0.2, 0.6, 0.2], scale: 1 } : {}}
-              transition={{ duration: 1.5, delay: 0.4 + i * 0.15, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-primary/40"
-            />
-          ))}
-        </div>
+          )}
+        </svg>
       </div>
     );
   }
 
-  // Curved connector for desktop zig-zag
   const isLeftToRight = direction === "left-to-right";
   const pathD = isLeftToRight
-    ? "M 50 0 C 50 40, 350 40, 350 80"
-    : "M 350 0 C 350 40, 50 40, 50 80";
+    ? "M 60 10 C 60 50, 440 50, 440 90"
+    : "M 440 10 C 440 50, 60 50, 60 90";
 
   return (
     <div ref={ref} className="relative">
-      {/* Mobile: simple vertical dots */}
-      <div className="flex justify-center py-2 lg:hidden">
-        <div className="flex flex-col items-center gap-0.5">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={revealed ? { opacity: [0.2, 0.6, 0.2], scale: 1 } : {}}
-              transition={{ duration: 1.5, delay: i * 0.15, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-primary/40"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop: curved SVG path */}
-      <div className="hidden lg:flex justify-center py-1">
-        <svg width="400" height="80" viewBox="0 0 400 80" fill="none" className="overflow-visible">
-          <motion.path
-            d={pathD}
-            stroke="url(#curveGrad)"
-            strokeWidth="1.5"
-            strokeDasharray="6 4"
-            fill="none"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={revealed ? { pathLength: 1, opacity: 1 } : {}}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="animate-dash-flow"
-          />
-          {/* Flowing particle */}
+      {/* Mobile: simple vertical arrow */}
+      <div className="flex justify-center py-3 lg:hidden">
+        <svg width="6" height="50" viewBox="0 0 6 50">
+          <line x1="3" y1="0" x2="3" y2="42" stroke="hsl(270, 80%, 55%)" strokeWidth="2" strokeOpacity="0.15" />
+          <polygon points="0,40 3,48 6,40" fill="hsl(270, 80%, 55%)" fillOpacity="0.2" />
           {revealed && (
             <motion.circle
-              r="3"
+              cx="3" r="2"
               fill="hsl(270, 80%, 55%)"
-              opacity="0.6"
-              animate={{
-                offsetDistance: ["0%", "100%"],
-              }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-              style={{ offsetPath: `path('${pathD}')` }}
+              animate={{ cy: [0, 45], opacity: [0, 0.6, 0.6, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
             />
           )}
-          <defs>
-            <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(270, 80%, 55%)" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="hsl(220, 90%, 56%)" stopOpacity="0.15" />
-            </linearGradient>
-          </defs>
+        </svg>
+      </div>
+
+      {/* Desktop: curved SVG path with arrowhead */}
+      <div className="hidden lg:flex justify-center py-2">
+        <svg width="500" height="100" viewBox="0 0 500 100" fill="none" className="overflow-visible">
+          {/* Static path */}
+          <path
+            d={pathD}
+            stroke="hsl(270, 80%, 55%)"
+            strokeWidth="2"
+            strokeOpacity="0.12"
+            fill="none"
+          />
+          {/* Glow path */}
+          <path
+            d={pathD}
+            stroke="hsl(270, 80%, 55%)"
+            strokeWidth="6"
+            strokeOpacity="0.03"
+            fill="none"
+          />
+          {/* Arrowhead at end */}
+          <motion.circle
+            cx={isLeftToRight ? 440 : 60}
+            cy="90"
+            r="4"
+            fill="hsl(270, 80%, 55%)"
+            fillOpacity="0.15"
+          />
+          {/* Flowing particles */}
+          {revealed && [0, 1, 2].map((i) => (
+            <motion.circle
+              key={i}
+              r="3"
+              fill="hsl(270, 80%, 55%)"
+              animate={{
+                offsetDistance: ["0%", "100%"],
+                opacity: [0, 0.5, 0.5, 0],
+              }}
+              transition={{ duration: 3, delay: i * 1, repeat: Infinity, ease: "linear" }}
+              style={{ offsetPath: `path('${pathD}')` } as any}
+            />
+          ))}
         </svg>
       </div>
     </div>

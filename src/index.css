@@ -74,13 +74,13 @@
 }
 
 .glass-strong {
-  background: hsla(0, 0%, 100%, 0.85);
+  background: hsla(0, 0%, 100%, 0.88);
   backdrop-filter: blur(30px);
   border: 1px solid hsla(260, 20%, 88%, 0.9);
   box-shadow: 0 1px 3px hsla(260, 20%, 50%, 0.06), 0 8px 32px hsla(260, 20%, 50%, 0.04);
 }
 
-/* Glow effects — subtler for light theme */
+/* Glow effects */
 .glow-purple {
   box-shadow: 0 0 30px hsla(270, 80%, 55%, 0.12), 0 0 80px hsla(270, 80%, 55%, 0.06);
 }
@@ -95,6 +95,19 @@
 
 .glow-text-blue {
   color: hsl(220, 70%, 45%);
+}
+
+/* Background infrastructure pattern */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(hsla(260, 20%, 90%, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsla(260, 20%, 90%, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, hsla(270, 80%, 55%, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Animated gradient background */
@@ -159,6 +172,18 @@
   100% { transform: translateX(200%) rotate(-45deg); }
 }
 
+@keyframes globe-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes particle-flow {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
 .animate-float { animation: float-particle 6s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-dash-flow { animation: dash-flow 1s linear infinite; }
@@ -166,12 +191,13 @@
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 .animate-line-draw { animation: line-draw 2s ease-out forwards; }
 .animate-float-bubble { animation: float-bubble 8s ease-in-out infinite; }
+.animate-globe-rotate { animation: globe-rotate 60s linear infinite; }
 
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.revealed {
   opacity: 1;

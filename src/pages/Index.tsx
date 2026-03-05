@@ -14,48 +14,58 @@ import FlowConnector from "@/components/FlowConnector";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-
-      {/* Pipeline Flow */}
-      <div className="max-w-6xl mx-auto px-4 lg:px-8">
-        {/* Row 1: Lead Sources → Contacts Pool */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          <LeadSourcesSection />
-          <ContactsPoolSection />
-        </div>
-
-        <FlowConnector direction="right-to-left" />
-
-        {/* Row 2: Prospect Data ← AI Communication */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          <ProspectDataSection />
-          <AICommunicationSection />
-        </div>
-
-        <FlowConnector direction="left-to-right" />
-
-        {/* Row 3: Qualified Leads (full width) */}
-        <QualifiedLeadsSection />
-
-        <FlowConnector direction="right-to-left" />
-
-        {/* Row 4: Landing Pages → Calendar Booking */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          <LandingPagesSection />
-          <CalendarBookingSection />
-        </div>
-
-        <FlowConnector direction="left-to-right" />
-
-        {/* Row 5: CRM Pipeline (full width) */}
-        <CRMPipelineSection />
+    <div className="min-h-screen bg-background overflow-x-hidden relative">
+      {/* Layered background infrastructure */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-dot-pattern opacity-40" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+        <div className="absolute top-0 left-0 right-0 h-[50vh] bg-[radial-gradient(ellipse_at_top,_hsla(270,80%,55%,0.04)_0%,_transparent_60%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-[radial-gradient(ellipse_at_bottom,_hsla(220,90%,56%,0.03)_0%,_transparent_60%)]" />
       </div>
 
-      {/* Final Result */}
-      <SalesCalendarSection />
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+
+        {/* Pipeline Flow */}
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          {/* Row 1: Lead Sources → Contacts Pool */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <LeadSourcesSection />
+            <ContactsPoolSection />
+          </div>
+
+          <FlowConnector direction="right-to-left" />
+
+          {/* Row 2: Prospect Data ← AI Communication */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <ProspectDataSection />
+            <AICommunicationSection />
+          </div>
+
+          <FlowConnector direction="left-to-right" />
+
+          {/* Row 3: Qualified Leads (full width) */}
+          <QualifiedLeadsSection />
+
+          <FlowConnector direction="right-to-left" />
+
+          {/* Row 4: Landing Pages → Calendar Booking */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <LandingPagesSection />
+            <CalendarBookingSection />
+          </div>
+
+          <FlowConnector direction="left-to-right" />
+
+          {/* Row 5: CRM Pipeline (full width) */}
+          <CRMPipelineSection />
+        </div>
+
+        {/* Final Result */}
+        <SalesCalendarSection />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
+import ContactsCRMSection from "@/components/sections/ContactsCRMSection";
+import AICommunicationSection from "@/components/sections/AICommunicationSection";
+import QualifiedLeadsSection from "@/components/sections/QualifiedLeadsSection";
+import LandingPagesSection from "@/components/sections/LandingPagesSection";
+import CalendarBookingSection from "@/components/sections/CalendarBookingSection";
+import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
+import SalesCalendarSection from "@/components/sections/SalesCalendarSection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
+      <HeroSection />
+      <LeadSourcesSection />
+      <ContactsCRMSection />
+      <AICommunicationSection />
+      <QualifiedLeadsSection />
+      <LandingPagesSection />
+      <CalendarBookingSection />
+      <CRMPipelineSection />
+      <SalesCalendarSection />
+      <Footer />
     </div>
   );
 };

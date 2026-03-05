@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 interface GlowingNodeProps {
   label: string;
@@ -10,13 +11,6 @@ interface GlowingNodeProps {
 
 const GlowingNode = ({ label, icon, delay = 0, color = "purple" }: GlowingNodeProps) => {
   const [hovered, setHovered] = useState(false);
-
-  const glowColor = color === "blue" 
-    ? "hsla(190, 100%, 50%, 0.4)" 
-    : "hsla(270, 100%, 65%, 0.4)";
-  const glowColorStrong = color === "blue"
-    ? "hsla(190, 100%, 50%, 0.7)"
-    : "hsla(270, 100%, 65%, 0.7)";
 
   return (
     <motion.div
@@ -30,17 +24,26 @@ const GlowingNode = ({ label, icon, delay = 0, color = "purple" }: GlowingNodePr
       <motion.div
         animate={{
           boxShadow: hovered
-            ? `0 0 30px ${glowColorStrong}, 0 0 80px ${glowColor}`
-            : `0 0 15px ${glowColor}, 0 0 40px hsla(270, 100%, 65%, 0.1)`,
+            ? `0 0 24px hsla(270, 80%, 55%, 0.25), 0 8px 32px hsla(270, 80%, 55%, 0.12)`
+            : `0 1px 3px hsla(260, 20%, 50%, 0.08)`,
+          scale: hovered ? 1.08 : 1,
         }}
         transition={{ duration: 0.3 }}
-        className="glass w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-2xl md:text-3xl"
+        className="glass-strong w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center text-2xl md:text-3xl"
       >
         {icon}
       </motion.div>
       <span className="text-xs md:text-sm text-muted-foreground font-medium text-center max-w-[80px]">
         {label}
       </span>
+      {/* Animated arrow pointing down */}
+      <motion.div
+        animate={{ y: [0, 4, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, delay: delay * 0.5 }}
+        className="text-primary/40"
+      >
+        <ArrowDown className="w-3 h-3" />
+      </motion.div>
     </motion.div>
   );
 };

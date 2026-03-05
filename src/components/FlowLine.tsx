@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const FlowLine = ({ className = "" }: { className?: string }) => (
-  <div className={`flex justify-center py-4 ${className}`}>
-    <svg width="4" height="80" viewBox="0 0 4 80" className="overflow-visible">
+  <div className={`flex justify-center py-2 ${className}`}>
+    <svg width="4" height="60" viewBox="0 0 4 60" className="overflow-visible">
       <motion.line
-        x1="2" y1="0" x2="2" y2="80"
-        stroke="url(#flowGrad)"
+        x1="2" y1="0" x2="2" y2="60"
+        stroke="url(#flowGradLight)"
         strokeWidth="2"
         strokeDasharray="8 4"
         initial={{ pathLength: 0 }}
@@ -14,9 +14,9 @@ const FlowLine = ({ className = "" }: { className?: string }) => (
         className="animate-dash-flow"
       />
       <defs>
-        <linearGradient id="flowGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="hsl(270, 100%, 65%)" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="hsl(190, 100%, 50%)" stopOpacity="0.8" />
+        <linearGradient id="flowGradLight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="hsl(270, 80%, 55%)" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="hsl(270, 80%, 55%)" stopOpacity="0.1" />
         </linearGradient>
       </defs>
     </svg>

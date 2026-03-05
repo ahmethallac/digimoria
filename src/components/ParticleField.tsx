@@ -8,7 +8,7 @@ const ParticleField = ({ count = 30 }: { count?: number }) => {
       size: Math.random() * 3 + 1,
       duration: Math.random() * 15 + 10,
       delay: Math.random() * 10,
-      opacity: Math.random() * 0.3 + 0.1,
+      opacity: Math.random() * 0.15 + 0.05,
     })),
     [count]
   );
@@ -25,8 +25,8 @@ const ParticleField = ({ count = 30 }: { count?: number }) => {
             width: `${p.size}px`,
             height: `${p.size}px`,
             background: p.id % 2 === 0
-              ? "hsl(270, 100%, 65%)"
-              : "hsl(190, 100%, 50%)",
+              ? "hsl(270, 80%, 55%)"
+              : "hsl(220, 90%, 56%)",
             opacity: p.opacity,
             animation: `float-up ${p.duration}s ${p.delay}s linear infinite`,
           }}

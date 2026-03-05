@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
-import ContactsCRMSection from "@/components/sections/ContactsCRMSection";
+import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
+import ProspectDataSection from "@/components/sections/ProspectDataSection";
 import AICommunicationSection from "@/components/sections/AICommunicationSection";
 import QualifiedLeadsSection from "@/components/sections/QualifiedLeadsSection";
 import LandingPagesSection from "@/components/sections/LandingPagesSection";
@@ -16,7 +17,8 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <LeadSourcesSection />
-      <ContactsCRMSection />
+      <ContactsPoolSection />
+      <ProspectDataSection />
       <AICommunicationSection />
       <QualifiedLeadsSection />
       <LandingPagesSection />

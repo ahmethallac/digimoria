@@ -1,70 +1,104 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import FlowLine from "@/components/FlowLine";
-import { ArrowRight } from "lucide-react";
 
 const stages = [
-  { label: "Contacted", count: 48, cards: ["Acme Corp", "Beta Inc", "Gamma Ltd"] },
-  { label: "Meeting Scheduled", count: 32, cards: ["Delta Co", "Epsilon SA"] },
-  { label: "Proposal Sent", count: 18, cards: ["Zeta GmbH"] },
-  { label: "Follow Up", count: 12, cards: ["Eta LLC", "Theta AG"] },
+  {
+    title: "Contacted",
+    color: "bg-blue-50 border-blue-200",
+    dot: "bg-blue-400",
+    cards: [
+      { name: "Thomas W.", company: "Weber GmbH" },
+      { name: "Marie D.", company: "Dupont Design" },
+    ],
+  },
+  {
+    title: "Meeting Scheduled",
+    color: "bg-violet-50 border-violet-200",
+    dot: "bg-violet-400",
+    cards: [
+      { name: "James C.", company: "Carter & Co" },
+      { name: "Elena R.", company: "Rossi Int." },
+    ],
+  },
+  {
+    title: "Proposal Sent",
+    color: "bg-amber-50 border-amber-200",
+    dot: "bg-amber-400",
+    cards: [
+      { name: "Hans M.", company: "Müller AG" },
+    ],
+  },
+  {
+    title: "Follow Up",
+    color: "bg-emerald-50 border-emerald-200",
+    dot: "bg-emerald-400",
+    cards: [
+      { name: "Sarah K.", company: "Kraft Ltd" },
+    ],
+  },
 ];
 
 const CRMPipelineSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-16 md:py-24">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 max-w-5xl mx-auto px-4`}>
-        <div className="text-center mb-12">
+    <section className="relative py-10 md:py-16">
+      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
+        <div className="text-center mb-8">
           <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 08</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display mt-3 mb-4 text-foreground">
+          <h2 className="text-2xl md:text-4xl font-bold font-display mt-2 mb-3 text-foreground">
             CRM Pipeline
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          <p className="text-sm text-muted-foreground max-w-lg mx-auto">
             Every morning your dashboard shows leads automatically organized by stage. No manual work required.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch">
-          {revealed && stages.map((stage, i) => (
-            <motion.div
-              key={stage.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="flex-1 min-w-0 relative"
-            >
-              <div className="glass-strong rounded-xl p-4 h-full">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="text-xs font-semibold text-foreground">{stage.label}</div>
-                  <div className="text-xs text-muted-foreground bg-muted rounded-full px-2 py-0.5">{stage.count}</div>
+        <div className="overflow-x-auto pb-2">
+          <div className="flex gap-3 min-w-[600px]">
+            {stages.map((stage, si) => (
+              <motion.div
+                key={stage.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={revealed ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: si * 0.15 }}
+                className={`flex-1 rounded-xl p-3 border ${stage.color}`}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className={`w-2 h-2 rounded-full ${stage.dot}`} />
+                  <span className="text-xs font-semibold text-foreground">{stage.title}</span>
+                  <span className="ml-auto text-[10px] text-muted-foreground">{stage.cards.length}</span>
                 </div>
                 <div className="space-y-2">
-                  {stage.cards.map((card, j) => (
+                  {stage.cards.map((card, ci) => (
                     <motion.div
-                      key={card}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.2 + j * 0.1 + 0.5 }}
-                      className="bg-background rounded-lg p-2.5 border border-border text-xs text-foreground/70 shadow-sm"
+                      key={card.name}
+                      initial={{ opacity: 0, x: si > 0 ? -20 : 0 }}
+                      animate={revealed ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.5 + si * 0.15 + ci * 0.1 }}
+                      className="bg-background rounded-lg p-2.5 shadow-sm border border-border/50"
                     >
-                      {card}
+                      <div className="text-[11px] font-medium text-foreground">{card.name}</div>
+                      <div className="text-[9px] text-muted-foreground">{card.company}</div>
                     </motion.div>
                   ))}
                 </div>
-              </div>
-              {i < stages.length - 1 && (
-                <div className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10">
-                  <ArrowRight className="w-4 h-4 text-primary/30" />
-                </div>
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <FlowLine />
+        {revealed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 1, 0] }}
+            transition={{ delay: 2, duration: 2, repeat: Infinity, repeatDelay: 4 }}
+            className="flex items-center justify-center mt-4 text-[10px] text-primary font-medium"
+          >
+            ← Cards move automatically between stages →
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 };

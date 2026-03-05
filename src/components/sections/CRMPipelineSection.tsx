@@ -44,12 +44,11 @@ const CRMPipelineSection = () => {
   const [stages, setStages] = useState(initialStages);
   const [movingCard, setMovingCard] = useState<{ stageIdx: number; cardIdx: number } | null>(null);
 
-  // Auto-move cards between stages
   useEffect(() => {
     if (!revealed) return;
     const interval = setInterval(() => {
       setStages(prev => {
-        const fromIdx = Math.floor(Math.random() * 3); // don't pick last
+        const fromIdx = Math.floor(Math.random() * 3);
         const from = prev[fromIdx];
         if (from.cards.length === 0) return prev;
         const cardIdx = 0;
@@ -68,34 +67,34 @@ const CRMPipelineSection = () => {
   }, [revealed]);
 
   return (
-    <section className="relative py-6 md:py-10">
+    <section className="relative py-8 md:py-12">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-5">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-primary font-semibold">Stage 08</span>
-          <h2 className="text-xl md:text-3xl font-bold font-display mt-1.5 mb-2 text-foreground">
+        <div className="text-center mb-6">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 08</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display mt-2 mb-2.5 text-foreground">
             CRM Pipeline
           </h2>
-          <p className="text-xs text-muted-foreground max-w-md mx-auto">
+          <p className="text-sm text-muted-foreground max-w-lg mx-auto">
             Every morning your dashboard shows leads automatically organized. No manual work required.
           </p>
         </div>
 
         <div className="overflow-x-auto pb-2">
-          <div className="flex gap-2 min-w-[550px]">
+          <div className="flex gap-3 min-w-[640px]">
             {stages.map((stage, si) => (
               <motion.div
                 key={stage.title}
                 initial={{ opacity: 0, y: 15 }}
                 animate={revealed ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: si * 0.12 }}
-                className={`flex-1 rounded-xl p-2.5 border ${stage.color}`}
+                className={`flex-1 rounded-xl p-3.5 border ${stage.color}`}
               >
-                <div className="flex items-center gap-1.5 mb-2">
-                  <div className={`w-1.5 h-1.5 rounded-full ${stage.dot}`} />
-                  <span className="text-[10px] font-semibold text-foreground">{stage.title}</span>
-                  <span className="ml-auto text-[9px] text-muted-foreground">{stage.cards.length}</span>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className={`w-2 h-2 rounded-full ${stage.dot}`} />
+                  <span className="text-sm font-semibold text-foreground">{stage.title}</span>
+                  <span className="ml-auto text-xs text-muted-foreground">{stage.cards.length}</span>
                 </div>
-                <div className="space-y-1.5 min-h-[60px]">
+                <div className="space-y-2 min-h-[80px]">
                   {stage.cards.map((card, ci) => (
                     <motion.div
                       key={card.name}
@@ -107,10 +106,10 @@ const CRMPipelineSection = () => {
                         scale: movingCard?.stageIdx === si && movingCard?.cardIdx === ci ? 0.95 : 1,
                       }}
                       transition={{ duration: 0.3 }}
-                      className="bg-background rounded-lg p-2 shadow-sm border border-border/40"
+                      className="bg-background rounded-lg p-2.5 shadow-sm border border-border/40"
                     >
-                      <div className="text-[10px] font-medium text-foreground">{card.name}</div>
-                      <div className="text-[8px] text-muted-foreground">{card.company}</div>
+                      <div className="text-sm font-medium text-foreground">{card.name}</div>
+                      <div className="text-xs text-muted-foreground">{card.company}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -124,7 +123,7 @@ const CRMPipelineSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.7, 0.7, 0] }}
             transition={{ delay: 1.5, duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            className="flex items-center justify-center mt-2 text-[9px] text-primary font-medium"
+            className="flex items-center justify-center mt-3 text-xs text-primary font-medium"
           >
             ← Cards move automatically between stages →
           </motion.div>

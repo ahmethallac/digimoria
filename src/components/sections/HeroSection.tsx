@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import ParticleField from "@/components/ParticleField";
 import NetworkGlobe from "@/components/NetworkGlobe";
 import logo from "@/assets/digimoria_logo_1.png";
@@ -30,43 +29,12 @@ const connections = [
 ];
 
 const HeroSection = () => {
-  const unicornRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Load UnicornStudio script
-    const w = window as any;
-    if (w.UnicornStudio?.isInitialized) {
-      w.UnicornStudio.init();
-      return;
-    }
-    w.UnicornStudio = { isInitialized: false };
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.1/dist/unicornStudio.umd.js";
-    script.onload = () => {
-      (window as any).UnicornStudio.init();
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      try { (window as any).UnicornStudio?.destroy?.(); } catch {}
-    };
-  }, []);
-
   const scrollToSystem = () => {
     document.getElementById("lead-sources")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-      {/* WebGL Background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0, opacity: 0.6 }}>
-        <div
-          ref={unicornRef}
-          data-us-project="y6KtVn43LzOq8paDA9Jq"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-
       <ParticleField count={30} />
       <NetworkGlobe />
 

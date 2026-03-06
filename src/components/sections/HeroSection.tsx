@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import ParticleField from "@/components/ParticleField";
 import NetworkGlobe from "@/components/NetworkGlobe";

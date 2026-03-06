@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import ParticleField from "@/components/ParticleField";
 import NetworkGlobe from "@/components/NetworkGlobe";
@@ -29,6 +30,18 @@ const connections = [
 
 
 const HeroSection = () => {
+  const webglRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Re-initialize UnicornStudio after React mounts the DOM
+    const timer = setTimeout(() => {
+      if ((window as any).UnicornStudio) {
+        (window as any).UnicornStudio.init();
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToSystem = () => {
     document.getElementById("lead-sources")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -37,7 +50,7 @@ const HeroSection = () => {
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
       {/* WebGL Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '60px', zIndex: 0 }}>
-        <div style={{ width: '1440px', height: '900px' }} data-us-project="y6KtVn43LzOq8paDA9Jq" />
+        <div ref={webglRef} style={{ width: '1440px', height: '900px' }} data-us-project="y6KtVn43LzOq8paDA9Jq" />
       </div>
 
       <ParticleField count={30} />

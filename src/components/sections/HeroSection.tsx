@@ -105,17 +105,16 @@ const HeroSection = () => {
       {/* Orbit rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border border-primary/[0.04] animate-spin-slow" />
-        <div className="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full border border-primary/[0.03] animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "35s" }} />
+        <div
+          className="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full border border-primary/[0.03] animate-spin-slow"
+          style={{ animationDirection: "reverse", animationDuration: "35s" }}
+        />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <img src={logo} alt="DigiMoria" className="w-14 h-14 md:w-20 md:h-20 mx-auto mb-6 drop-shadow-md" />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <img src={logo} alt="DigiMoria" className="w-30 h-30 md:w-40 md:h-40 mx-auto mb-6 drop-shadow-md" />
         </motion.div>
 
         <motion.h1
@@ -128,9 +127,7 @@ const HeroSection = () => {
             AI-Powered Customer
           </span>
           <br />
-          <span className="text-foreground">
-            Acquisition Infrastructure
-          </span>
+          <span className="text-foreground">Acquisition Infrastructure</span>
         </motion.h1>
 
         <motion.p
@@ -151,10 +148,7 @@ const HeroSection = () => {
         >
           <span className="relative z-10 flex items-center gap-2">
             Explore the System
-            <motion.span
-              animate={{ y: [0, 3, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
+            <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
               ↓
             </motion.span>
           </span>

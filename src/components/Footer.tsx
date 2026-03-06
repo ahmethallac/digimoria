@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/digimoria_yatay_logo.png";
 
-const Footer = () => (
-  <footer className="border-t border-border bg-secondary/30">
+const Footer = () =>
+<footer className="border-t border-border bg-secondary/30">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
-          <img src={logo} alt="DigiMoria" className="h-8 mb-4" />
+          <img alt="DigiMoria" className="h-8 mb-4" src="/lovable-uploads/3361181a-0650-4b8f-8632-ce25b7a26e56.png" />
           <p className="text-sm text-muted-foreground max-w-md">
             AI-powered customer acquisition infrastructure. We build automated systems that generate and schedule qualified sales meetings for your business.
           </p>
@@ -33,7 +33,7 @@ const Footer = () => (
         © {new Date().getFullYear()} DigiMoria. All rights reserved.
       </div>
     </div>
-  </footer>
-);
+  </footer>;
+
 
 export default Footer;

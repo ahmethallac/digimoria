@@ -35,6 +35,11 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+      {/* WebGL Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '60px', zIndex: 0 }}>
+        <div style={{ width: '1440px', height: '900px' }} data-us-project="y6KtVn43LzOq8paDA9Jq" />
+      </div>
+
       <ParticleField count={30} />
       <NetworkGlobe />
 

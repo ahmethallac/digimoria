@@ -142,7 +142,7 @@ const HeroSection = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <img
             alt="DigiMoria"
-            className="w-40 h-40 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-md" src="/lovable-uploads/1c66e2d9-2779-43f1-987f-f6bdef027204.png" />
+            className="w-40 h-40 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-md object-fill" src="/lovable-uploads/ad6e8aa7-b506-4fb2-b04f-a6758e104990.webp" />
 
           
         </motion.div>

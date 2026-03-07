@@ -30,17 +30,17 @@ const Index = () => {
         <ProcessHeadingSection />
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          {/* Row 1: Stage 1 Lead Sources → Stage 2 Contacts Pool */}
+          {/* Row 1: Stage 1 Lead Sources → Stage 2 Prospect Data */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <LeadSourcesSection />
-            <ContactsPoolSection />
+            <ProspectDataSection />
           </div>
 
           <FlowConnector direction="right-to-left" />
 
-          {/* Row 2: Stage 3 Prospect Data ← Stage 4 AI Communication */}
+          {/* Row 2: Stage 3 Contacts Pool ← Stage 4 AI Communication */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <ProspectDataSection />
+            <ContactsPoolSection />
             <AICommunicationSection />
           </div>
 

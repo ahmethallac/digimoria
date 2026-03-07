@@ -37,7 +37,7 @@ const ContactsPoolSection = () => {
     <section className="relative py-8 md:py-12">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
         <div className="text-center mb-6">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 02</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 03</span>
           <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
             Contacts Pool
           </h2>

@@ -17,7 +17,7 @@ const ProcessHeadingSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 1, 1, 1, 0.3]);
 
   return (
-    <div ref={containerRef} className="relative py-12 md:py-16 overflow-hidden">
+    <div ref={containerRef} className="relative py-6 md:py-8 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

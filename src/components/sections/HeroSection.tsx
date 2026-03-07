@@ -155,18 +155,11 @@ const HeroSection = () => {
           
           <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
             AI-Powered Digital Performance Agency
-
-
-
           </span>
-          <br />
-          <span className="text-foreground">With our expert <performance marketing team, we combine AI, data, and automation to build scalable digital growth systems for brands — going beyond the traditional advertising agency approach
-</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-          
-          An automated system that generates and schedules qualified sales meetings for your business.
+          With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach
         </motion.p>
 
         <motion.button

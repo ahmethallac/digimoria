@@ -75,7 +75,7 @@ const CRMPipelineSection = () => {
             CRM Pipeline
           </h2>
           <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-            You can track the entire process from a single <b>panel</b> built specifically for you. Chatbot conversations, ad statistics, messages, and comments are collected in the panel. You <b>do not need</b> any additional CRM tools; through the CRM panel we provide, you will see all customer stages <b>automatically</b> organized.
+            Track the entire process from a <b>single panel</b> built specifically for you. Chatbot conversations, ad statistics, messages, and comments are collected in one place, so you <b>don't need</b> any additional <b>CRM tools</b>. When you <b>wake up</b>, you can see which customers were contacted, which meetings took place, and which sales were completed — all <b>automatically</b> updated in your CRM by <b>AI automations</b> running <b>24 hours</b> a day.
           </p>
         </div>
 

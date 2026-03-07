@@ -2,31 +2,31 @@ import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const avatarColors = [
-  "bg-primary/20 text-primary",
-  "bg-pink-100 text-pink-600",
-  "bg-blue-100 text-blue-600",
-  "bg-amber-100 text-amber-600",
-  "bg-emerald-100 text-emerald-600",
-  "bg-violet-100 text-violet-600",
-  "bg-rose-100 text-rose-600",
-  "bg-sky-100 text-sky-600",
-  "bg-orange-100 text-orange-600",
-  "bg-teal-100 text-teal-600",
-  "bg-indigo-100 text-indigo-600",
-  "bg-fuchsia-100 text-fuchsia-600",
-  "bg-cyan-100 text-cyan-600",
-  "bg-lime-100 text-lime-600",
-  "bg-purple-100 text-purple-600",
-  "bg-red-100 text-red-600",
-  "bg-yellow-100 text-yellow-600",
-  "bg-slate-100 text-slate-600",
-  "bg-emerald-100 text-emerald-700",
-  "bg-blue-100 text-blue-700",
-  "bg-violet-100 text-violet-700",
-  "bg-amber-100 text-amber-700",
-  "bg-pink-100 text-pink-700",
-  "bg-teal-100 text-teal-700",
-];
+"bg-primary/20 text-primary",
+"bg-pink-100 text-pink-600",
+"bg-blue-100 text-blue-600",
+"bg-amber-100 text-amber-600",
+"bg-emerald-100 text-emerald-600",
+"bg-violet-100 text-violet-600",
+"bg-rose-100 text-rose-600",
+"bg-sky-100 text-sky-600",
+"bg-orange-100 text-orange-600",
+"bg-teal-100 text-teal-600",
+"bg-indigo-100 text-indigo-600",
+"bg-fuchsia-100 text-fuchsia-600",
+"bg-cyan-100 text-cyan-600",
+"bg-lime-100 text-lime-600",
+"bg-purple-100 text-purple-600",
+"bg-red-100 text-red-600",
+"bg-yellow-100 text-yellow-600",
+"bg-slate-100 text-slate-600",
+"bg-emerald-100 text-emerald-700",
+"bg-blue-100 text-blue-700",
+"bg-violet-100 text-violet-700",
+"bg-amber-100 text-amber-700",
+"bg-pink-100 text-pink-700",
+"bg-teal-100 text-teal-700"];
+
 
 const names = ["SK", "JM", "ER", "DL", "MB", "AK", "LS", "TW", "NR", "CP", "HG", "FT", "RB", "WC", "KP", "OZ", "VN", "QD", "PL", "XR", "YB", "ZM", "GT", "UH"];
 
@@ -37,12 +37,12 @@ const ContactsPoolSection = () => {
     <section className="relative py-8 md:py-12">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
         <div className="text-center mb-6">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 03</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 02</span>
           <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
             Contacts Pool
           </h2>
           <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-            All leads merge into one centralized intelligence hub
+            Sıcak, ılık ve soğuk tüm kitleler tamamen <b>yapay zeka sistemi</b> tarafından yönetilir. Mesajlar, yorumlar ve tüm <b>potansiyel</b> etkileşimler AI tarafından anında değerlendirilerek <b>müşteri adayına dönüştürülür</b>. Ayrıca özel <b>otomasyon</b> sistemlerimiz sayesinde <b>10.000</b>’den fazla ek <b>sıcak</b> potansiyel müşteri oluşturularak iletişim bilgileri doğrudan <b>CRM</b>’inize aktarılır. < <b>yapay zeka sistemi</b> tarafından yönetilir. Mesajlar, yorumlar ve tüm <b>potansiyel</b> etkileşimler AI tarafından anında değerlendirilerek <b>müşteri adayına dönüştürülür</b>. Ayrıca özel <b>otomasyon</b> sistemlerimiz sayesinde <b>10.000</b>’den fazla ek <b>sıcak</b> potansiyel müşteri oluşturularak iletişim bilgileri doğrudan <b>CRM</b>’inize aktarılır.  <b>yapay zeka sistemi</b> tarafından yönetilir. Mesajlar, yorumlar ve tüm <b>potansiyel</b> etkileşimler AI tarafından anında değerlendirilerek <b>müşteri adayına dönüştürülür</b>. Ayrıca özel <b>otomasyon</b> sistemlerimiz sayesinde <b>10.000</b>’den fazla ek <b>sıcak</b> potansiyel müşteri oluşturularak iletişim bilgileri doğrudan <b>CRM</b>’inize aktarılır. <b>yapay zeka sistemi</b> tarafından yönetilir. Mesajlar, yorumlar ve tüm <b>potansiyel</b> etkileşimler AI tarafından anında değerlendirilerek <b>müşteri adayına dönüştürülür</b>. Ayrıca özel <b>otomasyon</b> sistemlerimiz sayesinde <b>10.000</b>’den fazla ek <b>sıcak</b> potansiyel müşteri oluşturularak iletişim bilgileri doğrudan <b>CRM</b>’inize aktarılır <b>yapay zeka sistemi</b> tarafından yönetilir. Mesajlar, yorumlar ve tüm <b>potansiyel</b> etkileşimler AI tarafından anında değerlendirilerek <b>müşteri adayına dönüştürülür</b>. Ayrıca özel <b>otomasyon</b> sistemlerimiz sayesinde <b>10.000</b>’den fazla ek <b>sıcak</b> potansiyel müşteri oluşturularak iletişim bilgileri doğrudan <b>CRM</b>’inize aktarılır.
           </p>
         </div>
 
@@ -55,17 +55,17 @@ const ContactsPoolSection = () => {
           </div>
           
           <div className="grid grid-cols-6 gap-2">
-            {revealed && names.map((name, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.25, delay: i * 0.04 }}
-                className={`rounded-lg p-2 flex items-center justify-center text-xs font-bold ${avatarColors[i % avatarColors.length]}`}
-              >
+            {revealed && names.map((name, i) =>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.25, delay: i * 0.04 }}
+              className={`rounded-lg p-2 flex items-center justify-center text-xs font-bold ${avatarColors[i % avatarColors.length]}`}>
+              
                 {name}
               </motion.div>
-            ))}
+            )}
           </div>
 
           <div className="flex gap-6 mt-4 pt-3 border-t border-border">
@@ -84,8 +84,8 @@ const ContactsPoolSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ContactsPoolSection;

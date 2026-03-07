@@ -11,6 +11,7 @@ import CalendarBookingSection from "@/components/sections/CalendarBookingSection
 import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
 import SalesCalendarSection from "@/components/sections/SalesCalendarSection";
 import FlowConnector from "@/components/FlowConnector";
+import ProcessHeadingSection from "@/components/sections/ProcessHeadingSection";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
+        <ProcessHeadingSection />
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           {/* Row 1: Stage 1 Lead Sources → Stage 2 Contacts Pool */}

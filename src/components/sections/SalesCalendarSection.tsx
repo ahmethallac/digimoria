@@ -7,12 +7,12 @@ const SalesCalendarSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   const meetings = [
-    { time: "09:00", name: "Sarah K. — Discovery Call" },
-    { time: "10:30", name: "James M. — Product Demo" },
-    { time: "13:00", name: "Elena R. — Strategy Session" },
-    { time: "14:30", name: "David L. — Proposal Review" },
-    { time: "16:00", name: "Michael B. — Closing Call" },
-  ];
+  { time: "09:00", name: "Sarah K. — Discovery Call" },
+  { time: "10:30", name: "James M. — Product Demo" },
+  { time: "13:00", name: "Elena R. — Strategy Session" },
+  { time: "14:30", name: "David L. — Proposal Review" },
+  { time: "16:00", name: "Michael B. — Closing Call" }];
+
 
   return (
     <section className="relative py-12 md:py-20">
@@ -24,7 +24,7 @@ const SalesCalendarSection = () => {
           Your Sales Team Only Focuses<br className="hidden md:block" /> on Real Meetings
         </h2>
         <p className="text-base text-muted-foreground max-w-xl mx-auto mb-10">
-          DigiMoria automatically transforms traffic into scheduled sales meetings.
+          Customer acquisition automations <b>custom-built for your company by our team</b> identify potential prospects, initiate contact, and convert them into meetings. As a result, your sales team can conduct meetings with <b>at least 30x more warm potential prospects</b>< <b>custom-built for your company by our team</b> identify potential prospects, initiate contact, and convert them into meetings. As a result, your sales team can conduct meetings with <b>at least 30x more warm potential prospects</b> <b>custom-built for your company by our team</b> identify potential prospects, initiate contact, and convert them into meetings. As a result, your sales team can conduct meetings with <b>at least 30x more warm potential prospects</b>> <b>custom-built for your company by our team</b> identify potential prospects, initiate contact, and convert them into meetings. As a result, your sales team can conduct meetings with <b>at least 30x more warm potential prospects</b> <b>custom-built for your company by our team</b> identify potential prospects, initiate contact, and convert them into meetings. As a result, your sales team can conduct meetings with <b>at least 30x more warm potential prospects</b>.
         </p>
 
         <div className="glass-strong rounded-2xl p-4 md:p-6 max-w-md mx-auto mb-10 text-left">
@@ -34,37 +34,37 @@ const SalesCalendarSection = () => {
             <span className="ml-auto text-xs text-muted-foreground">March 5, 2026</span>
           </div>
           <div className="space-y-1.5">
-            {revealed && meetings.map((m, i) => (
-              <motion.div
-                key={m.time}
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 + 0.2 }}
-                className="flex items-center gap-3 p-2.5 rounded-lg bg-secondary hover:bg-primary/5 transition-colors"
-              >
+            {revealed && meetings.map((m, i) =>
+            <motion.div
+              key={m.time}
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.1 + 0.2 }}
+              className="flex items-center gap-3 p-2.5 rounded-lg bg-secondary hover:bg-primary/5 transition-colors">
+              
                 <span className="text-sm font-mono text-primary w-12">{m.time}</span>
                 <div className="w-0.5 h-5 rounded-full bg-primary/25" />
                 <span className="text-sm text-foreground/80">{m.name}</span>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8 }}
-        >
+          transition={{ delay: 0.8 }}>
+          
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base"
-          >
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base">
+            
             Start Automating <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default SalesCalendarSection;

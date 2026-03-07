@@ -31,9 +31,7 @@ const LeadSourcesSection = () => {
           <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
             Lead Sources
           </h2>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto"><b>We build</b> your <digital customer acquisition infrastructure. Google, Meta, and LinkedIn traffic channels are activated by our <b>professional team</b>, and all your social media accounts are <b>integrated into a central panel</b>. Website forms, social media messages, and all other communications are handled by <b>AI customer</b> service and automatically recorded in your <b>CRM</b> system.
-            <b>We build</b> your digital customer acquisition infrastructure. Google, Meta, and LinkedIn traffic channels are activated by our <b>professional team</b>, and all your social media accounts are <b>integrated into a central panel</b>. Website forms, social media messages, and all other communications are handled by <b>AI customer</b> service and automatically recorded in your <b>CRM</b> system.
-          </p>
+          <p className="text-sm text-muted-foreground max-w-sm mx-auto"><b>We build</b> your digital customer acquisition infrastructure. <b>Google, Meta, and LinkedIn</b> traffic channels are activated by our <b>professional team</b>, and all your social media accounts are <b>integrated into a central panel</b>. Website forms, social media messages, and all other communications are handled by <b>AI customer</b> service and automatically recorded in your <b>CRM</b> system.</p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-md mx-auto">

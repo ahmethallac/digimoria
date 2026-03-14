@@ -28,6 +28,7 @@ const Index = () => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
+        <WhatIsSection />
         <ProcessHeadingSection />
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

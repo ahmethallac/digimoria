@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import WhatIsSection from "@/components/sections/WhatIsSection";
 import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
 import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
 import ProspectDataSection from "@/components/sections/ProspectDataSection";
@@ -27,6 +28,7 @@ const Index = () => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
+        <WhatIsSection />
         <ProcessHeadingSection />
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

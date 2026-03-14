@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import WhatIsSection from "@/components/sections/WhatIsSection";
 import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
 import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
 import ProspectDataSection from "@/components/sections/ProspectDataSection";

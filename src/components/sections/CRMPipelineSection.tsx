@@ -48,21 +48,32 @@ const CRMPipelineSection = () => {
     if (!revealed) return;
     const interval = setInterval(() => {
       setStages((prev) => {
-        const fromIdx = Math.floor(Math.random() * 3);
-        const from = prev[fromIdx];
-        if (from.cards.length === 0) return prev;
-        const cardIdx = 0;
-        const card = from.cards[cardIdx];
+        // Find stages that have cards
+        const nonEmpty = prev.map((s, i) => ({ idx: i, count: s.cards.length })).filter(s => s.count > 0);
+        if (nonEmpty.length === 0) return prev;
+
+        // Pick a random non-empty stage
+        const source = nonEmpty[Math.floor(Math.random() * nonEmpty.length)];
+        const fromIdx = source.idx;
+
+        // Pick a random different destination (can go forward or backward)
+        const possibleTargets = prev.map((_, i) => i).filter(i => i !== fromIdx);
+        const toIdx = possibleTargets[Math.floor(Math.random() * possibleTargets.length)];
+
+        const cardIdx = Math.floor(Math.random() * prev[fromIdx].cards.length);
+        const card = prev[fromIdx].cards[cardIdx];
+
         setMovingCard({ stageIdx: fromIdx, cardIdx });
         setTimeout(() => setMovingCard(null), 600);
+
         const updated = prev.map((s, i) => {
           if (i === fromIdx) return { ...s, cards: s.cards.filter((_, ci) => ci !== cardIdx) };
-          if (i === fromIdx + 1) return { ...s, cards: [...s.cards, card] };
+          if (i === toIdx) return { ...s, cards: [...s.cards, card] };
           return s;
         });
         return updated;
       });
-    }, 4000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [revealed]);
 

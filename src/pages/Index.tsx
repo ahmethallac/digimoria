@@ -34,8 +34,9 @@ const Index = () => {
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           {/* Row 1: Stage 1 Lead Sources → Stage 2 Prospect Data */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-0">
             <LeadSourcesSection />
+            <HorizontalFlowArrow />
             <ProspectDataSection />
           </div>
 

@@ -51,8 +51,9 @@ const Index = () => {
           <FlowConnector direction="left-to-right" />
 
           {/* Row 3: Stage 5 Landing Pages → Stage 6 Calendar Booking */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-0">
             <LandingPagesSection />
+            <HorizontalFlowArrow />
             <CalendarBookingSection />
           </div>
 

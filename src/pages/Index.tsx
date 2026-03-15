@@ -12,7 +12,6 @@ import CalendarBookingSection from "@/components/sections/CalendarBookingSection
 import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
 import SalesCalendarSection from "@/components/sections/SalesCalendarSection";
 import FlowConnector from "@/components/FlowConnector";
-import HorizontalFlowArrow from "@/components/HorizontalFlowArrow";
 import ProcessHeadingSection from "@/components/sections/ProcessHeadingSection";
 
 const Index = () => {
@@ -34,9 +33,8 @@ const Index = () => {
 
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           {/* Row 1: Stage 1 Lead Sources → Stage 2 Prospect Data */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <LeadSourcesSection />
-            <HorizontalFlowArrow />
             <ProspectDataSection />
           </div>
 
@@ -51,9 +49,8 @@ const Index = () => {
           <FlowConnector direction="left-to-right" />
 
           {/* Row 3: Stage 5 Landing Pages → Stage 6 Calendar Booking */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <LandingPagesSection />
-            <HorizontalFlowArrow />
             <CalendarBookingSection />
           </div>
 

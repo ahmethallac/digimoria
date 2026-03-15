@@ -28,9 +28,9 @@ const GlowingNode = ({ label, icon, delay = 0 }: GlowingNodeProps) => {
           scale: hovered ? 1.1 : 1
         }}
         transition={{ duration: 0.2 }}
-        className="glass-strong w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center">
+        className="glass-strong w-16 h-16 md:w-16 md:h-16 rounded-xl flex items-center justify-center">
         
-        <div className="scale-110">{icon}</div>
+        <div className="scale-125 md:scale-110">{icon}</div>
       </motion.div>
       <span className="text-[10px] md:text-xs text-muted-foreground font-medium text-center leading-tight max-w-[80px]">
         {label}

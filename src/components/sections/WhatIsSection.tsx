@@ -3,7 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Zap, Megaphone, MessageSquare, UserCheck, CalendarCheck, ArrowDown } from "lucide-react";
 
 const funnelSteps = [
-  { icon: Megaphone, label: "Ads & Outreach", sub: "Traffic generation", color: "from-primary to-primary" },
+  { icon: Megaphone, label: "Ads & Mail", sub: "Traffic generation", color: "from-primary to-primary" },
   { icon: MessageSquare, label: "AI Responds", sub: "Instant engagement", color: "from-primary to-neon-blue" },
   { icon: UserCheck, label: "Pre-Qualification", sub: "Filter real prospects", color: "from-neon-blue to-neon-blue" },
   { icon: CalendarCheck, label: "Meeting Booked", sub: "Calendar auto-filled", color: "from-neon-blue to-primary" },

@@ -12,6 +12,7 @@ import CalendarBookingSection from "@/components/sections/CalendarBookingSection
 import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
 import SalesCalendarSection from "@/components/sections/SalesCalendarSection";
 import FlowConnector from "@/components/FlowConnector";
+import HorizontalFlowArrow from "@/components/HorizontalFlowArrow";
 import ProcessHeadingSection from "@/components/sections/ProcessHeadingSection";
 
 const Index = () => {

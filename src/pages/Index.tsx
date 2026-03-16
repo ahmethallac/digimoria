@@ -67,6 +67,7 @@ const Index = () => {
         {/* Comparison / Proof of Performance */}
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <QualifiedLeadsSection />
+          <TestimonialVideosSection />
         </div>
 
         <Footer />

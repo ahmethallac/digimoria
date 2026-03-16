@@ -7,6 +7,7 @@ import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
 import ProspectDataSection from "@/components/sections/ProspectDataSection";
 import AICommunicationSection from "@/components/sections/AICommunicationSection";
 import QualifiedLeadsSection from "@/components/sections/QualifiedLeadsSection";
+import TestimonialVideosSection from "@/components/sections/TestimonialVideosSection";
 import LandingPagesSection from "@/components/sections/LandingPagesSection";
 import CalendarBookingSection from "@/components/sections/CalendarBookingSection";
 import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
@@ -66,6 +67,7 @@ const Index = () => {
         {/* Comparison / Proof of Performance */}
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <QualifiedLeadsSection />
+          <TestimonialVideosSection />
         </div>
 
         <Footer />

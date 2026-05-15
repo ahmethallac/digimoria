@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Globe, MessageCircle, CalendarDays, Users, Database, Brain, Zap, BarChart3, Bot, Mail } from "lucide-react";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";

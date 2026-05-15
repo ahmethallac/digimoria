@@ -38,21 +38,19 @@ const HeroSection = () => {
           With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button
-            onClick={scrollToSystem}
-            className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base"
-          >
-            <span className="relative z-10 flex items-center justify-center gap-2">
-              Explore the System
-              <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                ↓
-              </motion.span>
-            </span>
-          </button>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <div className="bg-foreground/5 rounded-[14px] border border-border/60 p-0.5">
+            <button
+              onClick={scrollToSystem}
+              className="group rounded-xl px-6 h-11 text-base font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all inline-flex items-center gap-2"
+            >
+              <span>Explore the System</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
+          </div>
           <a
             href="/contact"
-            className="px-8 py-3.5 rounded-xl font-semibold font-display text-foreground border border-border hover:bg-secondary transition-all text-base inline-flex items-center justify-center"
+            className="h-11 px-6 rounded-xl font-semibold font-display text-foreground hover:bg-secondary transition-all text-base inline-flex items-center justify-center"
           >
             Request a demo
           </a>

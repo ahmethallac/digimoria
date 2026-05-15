@@ -6,7 +6,6 @@ import { Globe, MessageCircle, CalendarDays, Users, Database, Brain, Zap, BarCha
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
-import BrandHero3D from "@/components/BrandHero3D";
 
 const floatingBubbles = [
 { icon: <Globe className="w-5 h-5" />, label: "Google", x: "8%", y: "20%", delay: 0, size: 56 },
@@ -141,55 +140,43 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-        <AnimatedGroup
-          preset="blur-slide"
-          className="text-center lg:text-left order-2 lg:order-1"
-        >
-          <img
-            alt="DigiMoria"
-            className="w-24 h-24 md:w-28 md:h-28 mx-auto lg:mx-0 mb-6 drop-shadow-md object-contain"
-            src="/lovable-uploads/ad6e8aa7-b506-4fb2-b04f-a6758e104990.webp"
-          />
+      <AnimatedGroup preset="blur-slide" className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <img
+          alt="DigiMoria"
+          className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-md object-contain"
+          src="/lovable-uploads/ad6e8aa7-b506-4fb2-b04f-a6758e104990.webp"
+        />
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-7xl font-bold font-display leading-[1.05] mb-5 tracking-tight">
-            <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-              AI-Powered Digital Performance Agency
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] mb-5 tracking-tight">
+          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
+            AI-Powered Digital Performance Agency
+          </span>
+        </h1>
+
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <button
+            onClick={scrollToSystem}
+            className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Explore the System
+              <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                ↓
+              </motion.span>
             </span>
-          </h1>
-
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-            With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-            <button
-              onClick={scrollToSystem}
-              className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Explore the System
-                <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  ↓
-                </motion.span>
-              </span>
-            </button>
-            <a
-              href="/contact"
-              className="px-8 py-3.5 rounded-xl font-semibold font-display text-foreground border border-border hover:bg-secondary transition-all text-base inline-flex items-center justify-center"
-            >
-              Request a demo
-            </a>
-          </div>
-        </AnimatedGroup>
-
-        <AnimatedGroup
-          preset="blur-slide"
-          className="order-1 lg:order-2 w-full"
-        >
-          <BrandHero3D />
-        </AnimatedGroup>
-      </div>
+          </button>
+          <a
+            href="/contact"
+            className="px-8 py-3.5 rounded-xl font-semibold font-display text-foreground border border-border hover:bg-secondary transition-all text-base inline-flex items-center justify-center"
+          >
+            Request a demo
+          </a>
+        </div>
+      </AnimatedGroup>
 
       {/* Logo cloud */}
       <AnimatedGroup

@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import WhatIsSection from "@/components/sections/WhatIsSection";

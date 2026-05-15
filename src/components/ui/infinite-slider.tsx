@@ -1,8 +1,22 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useMotionValue, animate, motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import useMeasure from "react-use-measure";
+import { useState, useEffect, useRef } from "react";
+
+function useMeasure() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    if (!ref.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setSize({ width, height });
+    });
+    ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, []);
+  return [ref, size] as const;
+}
 
 type InfiniteSliderProps = {
   children: React.ReactNode;

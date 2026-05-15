@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
+import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
 import Footer from "@/components/Footer";
 import ParticleField from "@/components/ParticleField";
 import { Users, Zap, Target, Globe } from "lucide-react";

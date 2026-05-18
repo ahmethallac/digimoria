@@ -16,50 +16,61 @@ const services = [
     icon: BarChart3,
     title: "AI-Powered Digital Performance",
     description:
-      "Data-driven campaigns that scale. We combine AI with performance marketing to maximize your ROAS across every channel.",
-    gradient: "from-primary to-neon-blue",
+      "Data-driven advertising across Google, Meta and LinkedIn — managed by our team with AI optimization layered on top for maximum ROI.",
+    iconBg: "from-violet-500 to-purple-600",
+    accent: "from-violet-500 to-purple-600",
+    badge: { label: "Core Service", className: "text-violet-600 bg-violet-50 border-violet-100" },
   },
   {
     icon: Settings2,
     title: "Custom AI Automation Solutions",
     description:
-      "Bespoke automation systems tailored to your workflows — from lead handling to internal operations, fully automated.",
-    gradient: "from-neon-blue to-primary",
+      "End-to-end automation pipelines tailored to your workflows. From lead capture to CRM updates — fully hands-free and running 24/7.",
+    iconBg: "from-pink-500 to-rose-500",
+    accent: "from-pink-500 to-rose-500",
+    badge: { label: "Popular", className: "text-pink-600 bg-pink-50 border-pink-100" },
   },
   {
     icon: Globe,
     title: "Website Development",
     description:
-      "High-converting, lightning-fast websites built with modern stacks. From landing pages to full-scale platforms.",
-    gradient: "from-primary to-neon-blue",
+      "High-converting, beautifully designed websites and landing pages built for speed, SEO and lead generation — not just looks.",
+    iconBg: "from-sky-500 to-blue-600",
+    accent: "from-sky-500 to-blue-600",
   },
   {
     icon: Sparkles,
     title: "AI Content Production",
     description:
-      "Scalable, on-brand content generated and optimized by AI — blogs, creatives, videos, and social assets at speed.",
-    gradient: "from-neon-blue to-primary",
+      "Scalable content pipelines powered by AI — blog posts, ads, social media and video scripts that match your brand voice perfectly.",
+    iconBg: "from-emerald-500 to-teal-600",
+    accent: "from-emerald-500 to-teal-600",
   },
   {
     icon: Bot,
     title: "AI Agent Development",
     description:
-      "Intelligent agents that handle support, sales, and operations autonomously — working 24/7 for your business.",
-    gradient: "from-primary to-neon-blue",
+      "Custom-trained AI agents for sales, support and outreach. Integrated into WhatsApp, website chat, Instagram DMs and more.",
+    iconBg: "from-orange-500 to-amber-500",
+    accent: "from-orange-500 to-amber-500",
+    badge: { label: "Trending", className: "text-violet-600 bg-violet-50 border-violet-100" },
   },
   {
     icon: Database,
     title: "Full AI System Infrastructure",
     description:
-      "End-to-end AI architecture — from cloud setup and APIs to data pipelines and model deployment.",
-    gradient: "from-neon-blue to-primary",
+      "We design and deploy your complete AI stack — from data pipelines to model integrations — so your business runs on intelligent automation.",
+    iconBg: "from-indigo-500 to-violet-600",
+    accent: "from-indigo-500 to-violet-600",
   },
   {
     icon: Terminal,
     title: "Vibe Coding Software Solutions",
     description:
-      "Rapid, AI-accelerated software development. We ship MVPs and production apps faster with vibe-coding workflows.",
-    gradient: "from-primary to-neon-blue",
+      "Rapid software development using the latest AI-assisted coding techniques. MVPs, internal tools and custom SaaS — built fast.",
+    iconBg: "from-fuchsia-500 to-pink-600",
+    accent: "from-fuchsia-500 to-pink-600",
+    badge: { label: "New", className: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-100" },
   },
 ];
 
@@ -82,7 +93,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-muted-foreground tracking-widest uppercase mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold text-primary tracking-[0.25em] uppercase mb-6">
             Our Services
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display leading-[1.1] tracking-tight mb-4">
@@ -113,21 +124,30 @@ const ServicesSection = () => {
                 whileHover={{ y: -4, scale: 1.02 }}
                 className="group relative"
               >
-                <div className="glass-strong rounded-2xl p-6 md:p-7 h-full border border-border/40 hover:border-primary/30 transition-all duration-300">
-                  {/* Gradient top border on hover */}
+                <div className="relative overflow-hidden bg-card rounded-2xl p-6 md:p-7 h-full border border-border/60 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                  {/* Top accent line */}
                   <div
-                    className={`absolute top-0 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.accent} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
                   />
+
+                  {/* Badge */}
+                  {service.badge && (
+                    <span
+                      className={`absolute top-4 right-4 text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 rounded-full border ${service.badge.className}`}
+                    >
+                      {service.badge.label}
+                    </span>
+                  )}
 
                   {/* Icon */}
                   <div
-                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-md`}
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${service.iconBg} flex items-center justify-center mb-5 shadow-md shadow-black/5`}
                   >
-                    <Icon className="w-5 h-5 text-primary-foreground" />
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-base md:text-lg font-semibold font-display text-foreground mb-2 leading-tight">
+                  <h3 className="text-base md:text-lg font-semibold font-display text-foreground mb-2 leading-tight pr-2">
                     {service.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">

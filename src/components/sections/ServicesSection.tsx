@@ -97,11 +97,8 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+        <div
+          ref={ref}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
         >
           {services.map((service, i) => {
@@ -109,9 +106,11 @@ const ServicesSection = () => {
             return (
               <motion.div
                 key={i}
-                variants={cardVariants}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
                 className="group relative"
               >
                 <div className="glass-strong rounded-2xl p-6 md:p-7 h-full border border-border/40 hover:border-primary/30 transition-all duration-300">

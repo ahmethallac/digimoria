@@ -136,11 +136,11 @@ const Navbar1 = () => {
         {/* Mobile Menu Button */}
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="md:hidden flex items-center justify-center w-9 h-9 rounded-full text-foreground"
+          className="md:hidden flex items-center justify-center w-9 h-9 rounded-full text-foreground hover:bg-secondary/70 transition-colors"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <Menu className="h-5 w-5" />
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </motion.button>
       </motion.div>
 

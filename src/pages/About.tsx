@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
 import Footer from "@/components/Footer";
 import ParticleField from "@/components/ParticleField";
@@ -13,6 +14,14 @@ const values = [
 
 const About = () => (
   <div className="min-h-screen bg-background">
+    <Helmet>
+      <title>About DigiMoria — AI Infrastructure for Customer Acquisition</title>
+      <meta name="description" content="DigiMoria is an AI infrastructure company building automated customer acquisition systems that turn traffic into qualified sales meetings." />
+      <link rel="canonical" href="https://digimoria.com/about" />
+      <meta property="og:title" content="About DigiMoria — AI Infrastructure for Customer Acquisition" />
+      <meta property="og:description" content="DigiMoria is an AI infrastructure company building automated customer acquisition systems that turn traffic into qualified sales meetings." />
+      <meta property="og:url" content="https://digimoria.com/about" />
+    </Helmet>
     <Navbar />
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32">
       <ParticleField count={15} />

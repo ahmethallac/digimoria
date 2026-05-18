@@ -4,6 +4,8 @@ import ParticleField from "@/components/ParticleField";
 import NetworkGlobe from "@/components/NetworkGlobe";
 import logo from "@/assets/digimoria_logo_1.png";
 import { Globe, MessageCircle, CalendarDays, Users, Database, Brain, Zap, BarChart3, Bot, Mail } from "lucide-react";
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 const floatingBubbles = [
 { icon: <Globe className="w-5 h-5" />, label: "Google", x: "8%", y: "20%", delay: 0, size: 56 },
@@ -147,35 +149,35 @@ const HeroSection = () => {
           
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-5 tracking-tight break-words">
-          
-          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-            AI-Powered Digital Performance Agency
-          </span>
-        </motion.h1>
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-5 tracking-tight break-words">
+          <AnimatedText
+            text="AI-Powered Digital Performance Agency"
+            delay={0.15}
+            stagger={0.09}
+            className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient"
+          />
+        </h1>
 
         <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
           With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach
         </motion.p>
 
-        <motion.button
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
-          onClick={scrollToSystem}
-          className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base">
-          
-          <span className="relative z-10 flex items-center gap-2">
+        >
+          <MagneticButton
+            onClick={scrollToSystem}
+            strength={0.3}
+            className="group px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 hover:shadow-primary/30 text-base overflow-hidden"
+          >
             Explore the System
-            <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="inline-block">
               ↓
             </motion.span>
-          </span>
-        </motion.button>
+          </MagneticButton>
+        </motion.div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />

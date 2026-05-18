@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, Bot, Globe, FileText, Cpu, Network, Code2 } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const services = [
   { icon: Sparkles, title: "AI-Powered Digital Performance", desc: "Data-driven growth campaigns supercharged by AI." },
@@ -47,20 +48,21 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
-                whileHover={{ y: -3 }}
-                className="group glass-strong rounded-2xl p-5 md:p-6 border border-border/60 hover:border-primary/40 transition-all"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-neon-blue flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5 text-primary-foreground" />
+                <SpotlightCard className="h-full p-5 md:p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-[hsl(220,90%,56%)] flex items-center justify-center shadow-md shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-[hsl(220,90%,56%)] blur-md opacity-0 group-hover:opacity-60 transition-opacity" />
+                      <Icon className="relative w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-[17px] font-semibold font-display text-foreground leading-tight mb-1.5">
+                        {s.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base md:text-[17px] font-semibold font-display text-foreground leading-tight mb-1.5">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                  </div>
-                </div>
+                </SpotlightCard>
               </motion.div>
             );
           })}

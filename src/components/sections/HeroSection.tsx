@@ -1,7 +1,7 @@
-import { ArrowRight, Globe, MessageCircle, CalendarDays, Users, Database, Brain, Zap, BarChart3, Bot, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatedGroup } from "@/components/ui/animated-group";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import NetworkGlobe from "@/components/NetworkGlobe";
+import ParticleField from "@/components/ParticleField";
 
 const HeroSection = () => {
   const scrollToSystem = () => {
@@ -10,13 +10,17 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Subtle background */}
+      {/* Background: 3D globe + particles */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div className="absolute inset-x-0 top-0 h-[60vh] bg-[radial-gradient(ellipse_at_top,_hsla(270,80%,60%,0.08)_0%,_transparent_60%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-[radial-gradient(ellipse_at_bottom,_hsla(220,90%,60%,0.05)_0%,_transparent_60%)]" />
+        <div className="absolute inset-0 animate-globe-rotate origin-center">
+          <NetworkGlobe />
+        </div>
+        <ParticleField count={28} />
       </div>
 
       {/* Content */}
@@ -53,50 +57,6 @@ const HeroSection = () => {
           >
             Request a demo
           </a>
-        </div>
-      </AnimatedGroup>
-
-      {/* Logo cloud */}
-      <AnimatedGroup
-        preset="blur-slide"
-        className="relative z-10 mt-16 md:mt-20 w-full max-w-5xl mx-auto px-4"
-      >
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-6">
-          Powering performance for modern teams
-        </p>
-        <div className="relative">
-          <InfiniteSlider gap={56} duration={28} durationOnHover={60} className="py-2">
-            {[
-              { Icon: Globe, label: "Google" },
-              { Icon: BarChart3, label: "Meta Ads" },
-              { Icon: Users, label: "LinkedIn" },
-              { Icon: Mail, label: "Klaviyo" },
-              { Icon: CalendarDays, label: "HubSpot" },
-              { Icon: Bot, label: "OpenAI" },
-              { Icon: Database, label: "Airtable" },
-              { Icon: Zap, label: "Zapier" },
-              { Icon: Brain, label: "Anthropic" },
-              { Icon: MessageCircle, label: "Slack" },
-            ].map(({ Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 text-muted-foreground/60 hover:text-foreground transition-colors"
-              >
-                <Icon className="w-5 h-5" />
-                <span className="font-display text-sm tracking-wide">{label}</span>
-              </div>
-            ))}
-          </InfiniteSlider>
-          <ProgressiveBlur
-            direction="left"
-            blurIntensity={0.4}
-            className="absolute left-0 top-0 h-full w-24"
-          />
-          <ProgressiveBlur
-            direction="right"
-            blurIntensity={0.4}
-            className="absolute right-0 top-0 h-full w-24"
-          />
         </div>
       </AnimatedGroup>
 

@@ -8,7 +8,6 @@ import {
   Bot,
   Database,
   Terminal,
-  ArrowRight,
 } from "lucide-react";
 
 const services = [

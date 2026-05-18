@@ -13,12 +13,14 @@ const HeroSection = () => {
       {/* Background: 3D globe + particles */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute inset-0 z-0"
       >
         <div className="absolute inset-x-0 top-0 h-[60vh] bg-[radial-gradient(ellipse_at_top,_hsla(270,80%,60%,0.08)_0%,_transparent_60%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-[radial-gradient(ellipse_at_bottom,_hsla(220,90%,60%,0.05)_0%,_transparent_60%)]" />
-        <div className="absolute inset-0 animate-globe-rotate origin-center">
-          <NetworkGlobe />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="animate-globe-rotate origin-center scale-[1.6] md:scale-[2] opacity-90">
+            <NetworkGlobe />
+          </div>
         </div>
         <ParticleField count={28} />
       </div>

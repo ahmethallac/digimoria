@@ -85,10 +85,10 @@ const ServicesSection = () => {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-muted-foreground tracking-widest uppercase mb-6">
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display leading-[1.05] tracking-tight mb-4">
-            <span className="text-foreground">Everything your business </span>
-            <span className="font-editorial italic font-normal text-gradient-premium">
-              needs to scale
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display leading-[1.1] tracking-tight mb-4">
+            <span className="text-foreground">Everything Your Business </span>
+            <span className="bg-gradient-to-r from-primary to-neon-blue bg-clip-text text-transparent">
+              Needs to Scale
             </span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -113,20 +113,21 @@ const ServicesSection = () => {
                 whileHover={{ y: -4, scale: 1.02 }}
                 className="group relative"
               >
-                <div className="ring-gradient glass-strong rounded-2xl p-6 md:p-7 h-full border border-border/40 group-hover:shadow-glow-premium transition-all duration-300">
+                <div className="glass-strong rounded-2xl p-6 md:p-7 h-full border border-border/40 hover:border-primary/30 transition-all duration-300">
                   {/* Gradient top border on hover */}
                   <div
                     className={`absolute top-0 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                   />
 
                   {/* Icon */}
-                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-accent to-neon-blue flex items-center justify-center mb-5 shadow-[0_8px_20px_-6px_hsla(270,80%,55%,0.45)]">
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/30 to-transparent" />
-                    <Icon className="relative w-5 h-5 text-primary-foreground" />
+                  <div
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-md`}
+                  >
+                    <Icon className="w-5 h-5 text-primary-foreground" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-base md:text-lg font-semibold font-display text-foreground mb-2 leading-tight tracking-tight">
+                  <h3 className="text-base md:text-lg font-semibold font-display text-foreground mb-2 leading-tight">
                     {service.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -151,7 +152,7 @@ const ServicesSection = () => {
           </p>
           <a
             href="/contact"
-            className="btn-premium inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md shadow-primary/15"
           >
             Let's Talk
             <ArrowRight className="w-4 h-4" />

@@ -17,10 +17,8 @@ const HeroSection = () => {
       >
         <div className="absolute inset-x-0 top-0 h-[60vh] bg-[radial-gradient(ellipse_at_top,_hsla(270,80%,60%,0.08)_0%,_transparent_60%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-[radial-gradient(ellipse_at_bottom,_hsla(220,90%,60%,0.05)_0%,_transparent_60%)]" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="animate-globe-rotate origin-center scale-[1.6] md:scale-[2] opacity-90">
-            <NetworkGlobe />
-          </div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] animate-globe-rotate">
+          <NetworkGlobe />
         </div>
         <ParticleField count={28} />
       </div>

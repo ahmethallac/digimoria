@@ -130,15 +130,9 @@ const ServicesSection = () => {
                   <h3 className="text-base md:text-lg font-semibold font-display text-foreground mb-2 leading-tight">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-
-                  {/* Subtle arrow hint */}
-                  <div className="flex items-center gap-1 text-xs font-medium text-primary/60 group-hover:text-primary transition-colors">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
                 </div>
               </motion.div>
             );

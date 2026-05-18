@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import {
   BarChart3,
   Settings2,
@@ -120,10 +121,10 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="group relative"
+                whileHover={{ y: -4 }}
+                className="group relative h-full"
               >
-                <div className="relative overflow-hidden bg-card rounded-2xl p-6 md:p-7 h-full border border-border/60 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <SpotlightCard className="relative overflow-hidden bg-card rounded-2xl p-6 md:p-7 h-full border border-border/60 group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300">
                   {/* Top accent line */}
                   <div
                     className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${service.accent} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
@@ -152,7 +153,7 @@ const ServicesSection = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                </div>
+                </SpotlightCard>
               </motion.div>
             );
           })}

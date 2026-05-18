@@ -143,7 +143,7 @@ const ServicesSection = () => {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
         <motion.div

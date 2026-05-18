@@ -1,7 +1,6 @@
 import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
-import ServicesSection from "@/components/sections/ServicesSection";
 import WhatIsSection from "@/components/sections/WhatIsSection";
 import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
 import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
@@ -30,7 +29,6 @@ const Index = () => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
-        <ServicesSection />
         <WhatIsSection />
         <ProcessHeadingSection />
 

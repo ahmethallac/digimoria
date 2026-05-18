@@ -1,91 +1,181 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import NetworkGlobe from "@/components/NetworkGlobe";
 import ParticleField from "@/components/ParticleField";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import { SplitText } from "@/components/ui/split-text";
+import NetworkGlobe from "@/components/NetworkGlobe";
+import logo from "@/assets/digimoria_logo_1.png";
+import { Globe, MessageCircle, CalendarDays, Users, Database, Brain, Zap, BarChart3, Bot, Mail } from "lucide-react";
+
+const floatingBubbles = [
+{ icon: <Globe className="w-5 h-5" />, label: "Google", x: "8%", y: "20%", delay: 0, size: 56 },
+{ icon: <span className="text-sm font-bold">f</span>, label: "Meta", x: "86%", y: "16%", delay: 1.2, size: 52 },
+{ icon: <span className="text-xs font-bold">in</span>, label: "LinkedIn", x: "90%", y: "52%", delay: 2.5, size: 48 },
+{ icon: <MessageCircle className="w-5 h-5" />, label: "Chat", x: "4%", y: "55%", delay: 1.8, size: 54 },
+{ icon: <CalendarDays className="w-5 h-5" />, label: "Calendar", x: "80%", y: "70%", delay: 3.5, size: 56 },
+{ icon: <Users className="w-4 h-4" />, label: "CRM", x: "14%", y: "75%", delay: 0.8, size: 48 },
+{ icon: <Database className="w-4 h-4" />, label: "Data", x: "93%", y: "35%", delay: 2, size: 46 },
+{ icon: <Brain className="w-5 h-5" />, label: "AI", x: "3%", y: "38%", delay: 3, size: 56 },
+{ icon: <Zap className="w-4 h-4" />, label: "Auto", x: "20%", y: "30%", delay: 0.4, size: 44 },
+{ icon: <BarChart3 className="w-4 h-4" />, label: "Analytics", x: "75%", y: "25%", delay: 4, size: 48 },
+{ icon: <Bot className="w-4 h-4" />, label: "Agent", x: "25%", y: "65%", delay: 2.8, size: 50 },
+{ icon: <Mail className="w-4 h-4" />, label: "Email", x: "70%", y: "60%", delay: 1.5, size: 46 }];
+
+
+const connections = [
+{ from: 0, to: 8 },
+{ from: 1, to: 9 },
+{ from: 7, to: 3 },
+{ from: 2, to: 4 },
+{ from: 10, to: 5 },
+{ from: 6, to: 1 }];
+
 
 const HeroSection = () => {
+  const webglRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Re-initialize UnicornStudio after React mounts the DOM
+    const timer = setTimeout(() => {
+      if ((window as any).UnicornStudio) {
+        (window as any).UnicornStudio.init();
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToSystem = () => {
     document.getElementById("lead-sources")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Background: 3D globe + particles + animated mesh */}
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+      {/* WebGL Background */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-      >
-        {/* animated gradient mesh */}
-        <div className="absolute inset-0 bg-[radial-gradient(at_20%_20%,_hsla(270,80%,60%,0.12)_0%,_transparent_50%),radial-gradient(at_80%_30%,_hsla(220,90%,60%,0.10)_0%,_transparent_50%),radial-gradient(at_50%_90%,_hsla(285,80%,65%,0.08)_0%,_transparent_55%)] animate-gradient" />
-        {/* subtle noise grid */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 [mask-image:radial-gradient(ellipse_at_center,_black_40%,_transparent_75%)]" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] animate-globe-rotate">
-          <NetworkGlobe />
-        </div>
-        <ParticleField count={28} />
+        className="absolute inset-0 flex items-end justify-center pointer-events-none overflow-hidden"
+        style={{ zIndex: 0 }}>
+        
+        <div
+          ref={webglRef}
+          style={{ width: "1440px", height: "900px", marginBottom: "-450px" }}
+          data-us-project="y6KtVn43LzOq8paDA9Jq" />
+        
+      </div>
+
+      <ParticleField count={30} />
+      <NetworkGlobe />
+
+      {/* Gradient light beams */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_hsla(270,80%,55%,0.06)_0%,_transparent_60%)]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_hsla(220,90%,56%,0.04)_0%,_transparent_60%)]" />
+        <motion.div
+          className="absolute top-0 left-0 w-[180px] h-[700px] bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent"
+          animate={{ x: ["-100%", "250vw"] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 1 }}
+          style={{ transform: "rotate(-25deg)" }} />
+        
+
+        <motion.div
+          className="absolute top-1/2 right-0 w-[120px] h-[600px] bg-gradient-to-b from-transparent via-neon-blue/[0.015] to-transparent"
+          animate={{ x: ["100%", "-250vw"] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 5 }}
+          style={{ transform: "rotate(20deg)" }} />
+        
+      </div>
+
+      {/* Connection lines between bubbles */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 1 }}>
+        {connections.map((conn, i) => {
+          const from = floatingBubbles[conn.from];
+          const to = floatingBubbles[conn.to];
+          return (
+            <motion.line
+              key={i}
+              x1={from.x}
+              y1={from.y}
+              x2={to.x}
+              y2={to.y}
+              stroke="hsl(270, 80%, 55%)"
+              strokeWidth="0.5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.1, 0.15, 0.1, 0] }}
+              transition={{ duration: 6, delay: i * 1.2, repeat: Infinity }} />);
+
+
+        })}
+      </svg>
+
+      {/* Floating bubbles */}
+      {floatingBubbles.map((bubble, i) =>
+      <motion.div
+        key={i}
+        className="absolute pointer-events-none hidden md:block"
+        style={{ left: bubble.x, top: bubble.y, zIndex: 2 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 + bubble.delay * 0.15 }}>
+        
+          <div
+          className="rounded-2xl glass flex items-center justify-center text-muted-foreground/40 animate-float-bubble"
+          style={{
+            width: bubble.size,
+            height: bubble.size,
+            animationDelay: `${bubble.delay}s`,
+            animationDuration: `${7 + bubble.delay}s`
+          }}>
+          
+            {bubble.icon}
+          </div>
+        </motion.div>
+      )}
+
+      {/* Orbit rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border border-primary/[0.04] animate-spin-slow" />
+        <div
+          className="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full border border-primary/[0.03] animate-spin-slow"
+          style={{ animationDirection: "reverse", animationDuration: "35s" }} />
+        
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <motion.img
-          alt="DigiMoria"
-          className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-md object-contain"
-          src="/lovable-uploads/ad6e8aa7-b506-4fb2-b04f-a6758e104990.webp"
-          initial={{ opacity: 0, scale: 0.85, y: -10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <img
+            alt="DigiMoria"
+            className="w-40 h-40 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-md object-fill" src="/lovable-uploads/ad6e8aa7-b506-4fb2-b04f-a6758e104990.webp" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass text-[11px] font-medium text-muted-foreground tracking-[0.18em] uppercase mb-5"
-        >
-          <Sparkles className="w-3 h-3 text-primary" />
-          AI Meeting Engine
+          
         </motion.div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] mb-5 tracking-tight">
-          <span className="block bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-            <SplitText text="AI-Powered Digital" delay={0.15} />
+        <motion.h1
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.08] mb-5 tracking-tight">
+          
+          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
+            AI-Powered Digital Performance Agency
           </span>
-          <span className="block bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-            <SplitText text="Performance Agency" delay={0.35} />
-          </span>
-        </h1>
+        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ delay: 0.7, duration: 0.7 }}
-          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
-        >
-          With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach.
+        <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          With our expert <b>performance marketing</b> team, we combine <b>AI</b>, data, and <b>automation</b> to build scalable <b>digital growth systems</b> for brands — going beyond the traditional advertising agency approach
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
+        <motion.button
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center items-center"
-        >
-          <MagneticButton
-            onClick={scrollToSystem}
-            className="group rounded-xl px-7 h-12 text-base font-semibold font-display text-primary-foreground bg-gradient-to-r from-primary to-[hsl(220,90%,56%)] shadow-[0_10px_30px_-10px_hsla(270,80%,55%,0.55)] hover:shadow-[0_15px_40px_-10px_hsla(270,80%,55%,0.75)]"
-          >
-            <span>Explore the System</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </MagneticButton>
-          <a
-            href="/contact"
-            className="relative h-12 px-6 rounded-xl font-semibold font-display text-foreground text-base inline-flex items-center justify-center border border-border/70 hover:border-primary/50 hover:bg-secondary/50 transition-all"
-          >
-            Request a demo
-          </a>
-        </motion.div>
+          transition={{ duration: 0.7, delay: 0.45 }}
+          onClick={scrollToSystem}
+          className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base">
+          
+          <span className="relative z-10 flex items-center gap-2">
+            Explore the System
+            <motion.span animate={{ y: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+              ↓
+            </motion.span>
+          </span>
+        </motion.button>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />

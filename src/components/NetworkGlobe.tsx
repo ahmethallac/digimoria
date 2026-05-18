@@ -42,15 +42,15 @@ const NetworkGlobe = () => {
   }, [nodes]);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <div className="relative scale-[1.6] md:scale-[2.2]" style={{ width: 400, height: 400 }}>
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      <div className="relative" style={{ width: 400, height: 400 }}>
         {/* Globe outline circles */}
-        <svg width="400" height="400" viewBox="0 0 400 400" className="absolute inset-0 opacity-25">
+        <svg width="400" height="400" viewBox="0 0 400 400" className="absolute inset-0 opacity-[0.06]">
           <circle cx="200" cy="200" r="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.8" fill="none" />
-          <circle cx="200" cy="200" r="100" stroke="hsl(270, 80%, 55%)" strokeWidth="0.6" fill="none" />
-          <ellipse cx="200" cy="200" rx="150" ry="60" stroke="hsl(270, 80%, 55%)" strokeWidth="0.6" fill="none" />
-          <ellipse cx="200" cy="200" rx="60" ry="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.6" fill="none" />
-          <ellipse cx="200" cy="200" rx="110" ry="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.5" fill="none" />
+          <circle cx="200" cy="200" r="100" stroke="hsl(270, 80%, 55%)" strokeWidth="0.5" fill="none" />
+          <ellipse cx="200" cy="200" rx="150" ry="60" stroke="hsl(270, 80%, 55%)" strokeWidth="0.5" fill="none" />
+          <ellipse cx="200" cy="200" rx="60" ry="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.5" fill="none" />
+          <ellipse cx="200" cy="200" rx="110" ry="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.4" fill="none" />
         </svg>
 
         {/* Connection lines */}
@@ -60,9 +60,9 @@ const NetworkGlobe = () => {
               key={i}
               x1={c.x1} y1={c.y1} x2={c.x2} y2={c.y2}
               stroke="hsl(270, 80%, 55%)"
-              strokeWidth="0.6"
+              strokeWidth="0.5"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.35, 0.35, 0] }}
+              animate={{ opacity: [0, 0.12, 0.12, 0] }}
               transition={{ duration: 4, delay: c.delay, repeat: Infinity }}
             />
           ))}
@@ -76,7 +76,7 @@ const NetworkGlobe = () => {
               cx={n.x} cy={n.y} r={n.size}
               fill="hsl(270, 80%, 55%)"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0.2, 0.7, 0.2] }}
+              animate={{ opacity: [0.05, 0.25, 0.05] }}
               transition={{ duration: 3, delay: n.delay, repeat: Infinity }}
             />
           ))}

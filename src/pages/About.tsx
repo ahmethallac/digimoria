@@ -13,7 +13,7 @@ const values = [
 ];
 
 const About = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-background overflow-x-hidden">
     <Helmet>
       <title>About DigiMoria — AI Infrastructure for Customer Acquisition</title>
       <meta name="description" content="DigiMoria is an AI infrastructure company building automated customer acquisition systems that turn traffic into qualified sales meetings." />

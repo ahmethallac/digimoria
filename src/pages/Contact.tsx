@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
         <title>Contact DigiMoria — Let's Build Your AI System</title>
         <meta name="description" content="Get in touch with DigiMoria to design an AI-powered customer acquisition system tailored to your business. Response within 24 hours." />

@@ -151,11 +151,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-5 tracking-tight break-words">
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] mb-5 tracking-tight break-words">
           
-          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-            AI-Powered Digital Performance Agency
+          <span className="text-foreground">AI-Powered Digital </span>
+          <span className="font-editorial italic font-normal text-gradient-premium animate-gradient">
+            Performance
           </span>
+          <span className="text-foreground"> Agency</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -167,7 +169,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
           onClick={scrollToSystem}
-          className="group relative px-8 py-3.5 rounded-xl font-semibold font-display text-primary-foreground bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/15 text-base">
+          className="btn-premium group relative px-8 py-3.5 rounded-xl font-semibold font-display text-base">
           
           <span className="relative z-10 flex items-center gap-2">
             Explore the System

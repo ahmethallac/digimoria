@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhatIsSection from "@/components/sections/WhatIsSection";
-import SectionDivider from "@/components/ui/section-divider";
 import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
 import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
 import ProspectDataSection from "@/components/sections/ProspectDataSection";
@@ -31,7 +30,6 @@ const Index = () => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
-        <div className="max-w-6xl mx-auto px-6"><SectionDivider /></div>
         <ServicesSection />
         <WhatIsSection />
         <ProcessHeadingSection />

@@ -42,8 +42,8 @@ const NetworkGlobe = () => {
   }, [nodes]);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-      <div className="relative" style={{ width: 400, height: 400 }}>
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="relative scale-[1.6] md:scale-[2.2]" style={{ width: 400, height: 400 }}>
         {/* Globe outline circles */}
         <svg width="400" height="400" viewBox="0 0 400 400" className="absolute inset-0 opacity-25">
           <circle cx="200" cy="200" r="150" stroke="hsl(270, 80%, 55%)" strokeWidth="0.8" fill="none" />

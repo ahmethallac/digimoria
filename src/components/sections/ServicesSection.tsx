@@ -8,7 +8,6 @@ import {
   Bot,
   Database,
   Terminal,
-  ArrowRight,
 } from "lucide-react";
 
 const services = [
@@ -159,25 +158,6 @@ const ServicesSection = () => {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 md:mt-16 text-center"
-        >
-          <p className="text-sm text-muted-foreground mb-4">
-            Not sure which service fits your needs?
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md shadow-primary/15"
-          >
-            Let's Talk
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

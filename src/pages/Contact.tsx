@@ -132,12 +132,19 @@ const Contact = () => {
               <div className="glass-strong rounded-2xl p-5">
                 <Mail className="w-5 h-5 text-accent mb-2" />
                 <div className="text-sm font-semibold text-foreground">Email</div>
-                <div className="text-sm text-muted-foreground">hello@digimoria.com</div>
+                <div className="text-sm text-muted-foreground">
+                  info@digimoria.com
+                  <br />
+                  Phone: +1 3074301457
+                </div>
               </div>
               <div className="glass-strong rounded-2xl p-5">
                 <MapPin className="w-5 h-5 text-primary mb-2" />
                 <div className="text-sm font-semibold text-foreground">Location</div>
-                <div className="text-sm text-muted-foreground">Global — Remote First</div>
+                <div className="text-sm text-muted-foreground whitespace-pre-line">
+                  1603 Capitol Ave Ste 413 E328 Cheyenne
+                  , WY 82001, Cheyenne / United States
+                </div>
               </div>
             </motion.div>
           </div>

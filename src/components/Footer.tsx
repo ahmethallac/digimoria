@@ -8,7 +8,9 @@ const Footer = () =>
         <div className="md:col-span-2">
           <img alt="DigiMoria" className="h-8 mb-4" src="/lovable-uploads/3361181a-0650-4b8f-8632-ce25b7a26e56.png" />
           <p className="text-sm text-muted-foreground max-w-md">
-            AI-powered customer acquisition infrastructure. We build automated systems that generate and schedule qualified sales meetings for your business.
+            AI-powered customer acquisition infrastructure. We build automated systems that generate and schedule qualified sales meetings for your business
+            <br />
+            DIGIMORIA GROUP INTELLIGENT ACQUISITION SYSTEMS LLC
           </p>
         </div>
         <div>

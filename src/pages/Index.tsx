@@ -1,24 +1,13 @@
-import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
+import { Header } from "@/components/ui/header-3";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhatIsSection from "@/components/sections/WhatIsSection";
-import LeadSourcesSection from "@/components/sections/LeadSourcesSection";
-import ContactsPoolSection from "@/components/sections/ContactsCRMSection";
-import ProspectDataSection from "@/components/sections/ProspectDataSection";
-import AICommunicationSection from "@/components/sections/AICommunicationSection";
-import QualifiedLeadsSection from "@/components/sections/QualifiedLeadsSection";
-import TestimonialVideosSection from "@/components/sections/TestimonialVideosSection";
-import LandingPagesSection from "@/components/sections/LandingPagesSection";
-import CalendarBookingSection from "@/components/sections/CalendarBookingSection";
-import CRMPipelineSection from "@/components/sections/CRMPipelineSection";
-import SalesCalendarSection from "@/components/sections/SalesCalendarSection";
-import FlowConnector from "@/components/FlowConnector";
-import ProcessHeadingSection from "@/components/sections/ProcessHeadingSection";
+import StagePipeline from "@/components/StagePipeline";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden relative">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#0a0613]">
       {/* Layered background infrastructure */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-dot-pattern opacity-40" />
@@ -28,49 +17,11 @@ const Index = () => {
       </div>
 
       <div className="relative z-10">
-        <Navbar />
+        <Header />
         <HeroSection />
         <ServicesSection />
         <WhatIsSection />
-        <ProcessHeadingSection />
-
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          {/* Row 1: Stage 1 Lead Sources → Stage 2 Prospect Data */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <LeadSourcesSection />
-            <ProspectDataSection />
-          </div>
-
-          <FlowConnector direction="right-to-left" />
-
-          {/* Row 2: Stage 3 Contacts Pool ← Stage 4 AI Communication */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <ContactsPoolSection />
-            <AICommunicationSection />
-          </div>
-
-          <FlowConnector direction="left-to-right" />
-
-          {/* Row 3: Stage 5 Landing Pages → Stage 6 Calendar Booking */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <LandingPagesSection />
-            <CalendarBookingSection />
-          </div>
-
-          <FlowConnector direction="right-to-left" />
-
-          {/* Row 4: Stage 7 CRM Pipeline */}
-          <CRMPipelineSection />
-        </div>
-
-        {/* Final Result */}
-        <SalesCalendarSection />
-
-        {/* Comparison / Proof of Performance */}
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <QualifiedLeadsSection />
-          <TestimonialVideosSection />
-        </div>
+        <StagePipeline />
 
         <Footer />
       </div>

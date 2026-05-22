@@ -7,28 +7,28 @@ const pages = [
   title: "Custom Furniture Solutions",
   subtitle: "Premium B2B manufacturing for retailers",
   cta: "Book a Demo",
-  gradient: "from-violet-100 via-purple-50 to-violet-100",
+  gradient: "from-[#271047] via-[#13091f] to-[#0d172a]",
   accent: "bg-violet-500"
 },
 {
   title: "Enterprise SaaS Platform",
   subtitle: "Scale your business with AI automation",
   cta: "Get Started",
-  gradient: "from-blue-100 via-sky-50 to-blue-100",
+  gradient: "from-[#0f2250] via-[#0b1020] to-[#111827]",
   accent: "bg-blue-500"
 },
 {
   title: "Manufacturing Services",
   subtitle: "Industrial-grade production solutions",
   cta: "Request Quote",
-  gradient: "from-emerald-100 via-teal-50 to-emerald-100",
+  gradient: "from-[#06352e] via-[#0b1020] to-[#121826]",
   accent: "bg-emerald-500"
 },
 {
   title: "Consulting & Advisory",
   subtitle: "Expert strategy for growth companies",
   cta: "Schedule Call",
-  gradient: "from-amber-100 via-orange-50 to-amber-100",
+  gradient: "from-[#3a2508] via-[#12091f] to-[#0b1020]",
   accent: "bg-amber-500"
 }];
 
@@ -37,25 +37,28 @@ const LandingPagesSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-8 md:py-12">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-6">
+    <section className="relative w-full py-8 md:py-10">
+      <div
+        ref={ref}
+        className={`reveal ${revealed ? "revealed" : ""} relative z-10 mx-auto grid w-full max-w-5xl items-center gap-8 px-6 md:grid-cols-[0.92fr_1.08fr] md:px-10`}
+      >
+        <div className="text-center md:text-left">
           <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 05</span>
-          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mt-3 mb-4 text-foreground">
             Custom Landing Pages
           </h2>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+          <p className="stage-desc mx-auto max-w-xl text-sm leading-7 md:mx-0 md:text-[15px]">
             After potential customers are informed in <b>detail</b> by the <b>chatbot</b>, they are directed to <b>landing pages we create specifically for you</b>. Through a multi-step <b>form</b>, they are then guided to schedule a meeting directly through the <b>calendar</b>
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-2xl">
+        <div className="overflow-hidden rounded-2xl md:min-w-0">
           <motion.div className="flex gap-4"
           animate={revealed ? { x: [0, -300, 0] } : {}}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
             
             {[...pages, ...pages].map((page, i) =>
-            <div key={i} className="glass-strong rounded-xl overflow-hidden min-w-[240px] flex-shrink-0">
+            <div key={i} className="glass-strong rounded-xl overflow-hidden min-w-[250px] flex-shrink-0">
                 <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border bg-secondary/30">
                   <div className="w-2 h-2 rounded-full bg-red-300" />
                   <div className="w-2 h-2 rounded-full bg-amber-300" />
@@ -77,7 +80,7 @@ const LandingPagesSection = () => {
                 }
                 </div>
                 <div className="p-4">
-                  <div className="text-sm font-semibold text-foreground mb-1">{page.title}</div>
+                  <div className="text-sm font-semibold text-foreground mb-1 leading-snug">{page.title}</div>
                   <div className="text-xs text-muted-foreground mb-2">{page.subtitle}</div>
                   <div className="h-1.5 bg-muted rounded w-3/4 mb-1.5" />
                   <div className="h-1.5 bg-muted/50 rounded w-1/2 mb-3" />

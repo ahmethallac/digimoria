@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Navbar1 as Navbar } from "@/components/ui/navbar-1";
+import { Header } from "@/components/ui/header-3";
 import Footer from "@/components/Footer";
 import ParticleField from "@/components/ParticleField";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Contact2 } from "@/components/ui/contact-2";
 import { toast } from "@/hooks/use-toast";
-import { Send, Mail, MapPin } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
     setTimeout(() => {
@@ -24,130 +21,89 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#0a0613] text-white">
       <Helmet>
-        <title>Contact DigiMoria — Let's Build Your AI System</title>
-        <meta name="description" content="Get in touch with DigiMoria to design an AI-powered customer acquisition system tailored to your business. Response within 24 hours." />
+        <title>Contact DigiMoria - Let's Build Your AI System</title>
+        <meta
+          name="description"
+          content="Get in touch with DigiMoria to design an AI-powered customer acquisition system tailored to your business. Response within 24 hours."
+        />
         <link rel="canonical" href="https://digimoria.com/contact" />
-        <meta property="og:title" content="Contact DigiMoria — Let's Build Your AI System" />
-        <meta property="og:description" content="Get in touch with DigiMoria to design an AI-powered customer acquisition system tailored to your business." />
+        <meta property="og:title" content="Contact DigiMoria - Let's Build Your AI System" />
+        <meta
+          property="og:description"
+          content="Get in touch with DigiMoria to design an AI-powered customer acquisition system tailored to your business."
+        />
         <meta property="og:url" content="https://digimoria.com/contact" />
       </Helmet>
-      <Navbar />
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32">
+
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.024)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.024)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute left-1/2 top-0 h-[42rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(139,45,242,0.22),transparent_68%)] blur-2xl" />
+        <div className="absolute bottom-0 right-0 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.12),transparent_70%)] blur-2xl" />
+      </div>
+
+      <Header />
+      <section className="relative pb-24 pt-32 md:pb-36 md:pt-40">
         <ParticleField count={10} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsla(270,100%,20%,0.15)_0%,_transparent_60%)]" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-xs uppercase tracking-[0.3em] text-accent font-semibold"
-            >
-              Get in Touch
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold font-display mt-4 mb-6 glow-text-purple"
-            >
-              Let's Build Your System
-            </motion.h1>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-8">
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              onSubmit={handleSubmit}
-              className="md:col-span-3 glass-strong rounded-2xl p-6 md:p-8 space-y-4"
-            >
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="contact-name">Name</Label>
-                  <Input
-                    id="contact-name"
-                    name="name"
-                    autoComplete="name"
-                    required
-                    maxLength={100}
-                    placeholder="Jane Doe"
-                    className="bg-muted/20 border-border/30"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="contact-email">Email</Label>
-                  <Input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    maxLength={255}
-                    placeholder="you@company.com"
-                    className="bg-muted/20 border-border/30"
-                  />
-                </div>
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="contact-company">Company</Label>
-                <Input
-                  id="contact-company"
-                  name="company"
-                  autoComplete="organization"
-                  maxLength={120}
-                  placeholder="Company name"
-                  className="bg-muted/20 border-border/30"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="contact-message">Message</Label>
-                <Textarea
-                  id="contact-message"
-                  name="message"
-                  rows={5}
-                  required
-                  maxLength={1000}
-                  placeholder="Tell us about your project..."
-                  className="bg-muted/20 border-border/30"
-                />
-              </div>
-              <Button
-                type="submit"
-                disabled={sending}
-                className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold"
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0a0613] via-[#0a0613]/82 to-transparent" />
+        <div className="relative z-10">
+          <Contact2
+            header={
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="inline-flex rounded-full border border-[#9b87f5]/25 bg-[#9b87f5]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-[#b9abff]"
               >
-                {sending ? "Sending..." : <><Send className="w-4 h-4 mr-2" /> Send Message</>}
-              </Button>
-            </motion.form>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="md:col-span-2 space-y-6"
-            >
-              <div className="glass-strong rounded-2xl p-5">
-                <Mail className="w-5 h-5 text-accent mb-2" />
-                <div className="text-sm font-semibold text-foreground">Email</div>
-                <div className="text-sm text-muted-foreground">
-                  info@digimoria.com
-                  <br />
-                  Phone: +1 3074301457
+                Get in Touch
+              </motion.span>
+            }
+            title={
+              <>
+                Let&apos;s Build Your{" "}
+                <span className="bg-gradient-to-r from-[#b9abff] to-[#38bdf8] bg-clip-text text-transparent">
+                  AI System
+                </span>
+              </>
+            }
+            description="Tell us where growth gets stuck. We will map the acquisition, AI response and calendar flow into one connected system."
+            onSubmit={handleSubmit}
+            sending={sending}
+            sidebar={
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-3"
+              >
+                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl">
+                  <Mail className="mb-3 h-5 w-5 text-[#b9abff]" />
+                  <div className="text-sm font-semibold text-white">Email</div>
+                  <div className="text-sm text-white/52">info@digimoria.com</div>
                 </div>
-              </div>
-              <div className="glass-strong rounded-2xl p-5">
-                <MapPin className="w-5 h-5 text-primary mb-2" />
-                <div className="text-sm font-semibold text-foreground">Location</div>
-                <div className="text-sm text-muted-foreground whitespace-pre-line">
-                  1603 Capitol Ave Ste 413 E328 Cheyenne
-                  , WY 82001, Cheyenne / United States
+                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl">
+                  <Phone className="mb-3 h-5 w-5 text-[#38bdf8]" />
+                  <div className="text-sm font-semibold text-white">Phone</div>
+                  <div className="text-sm text-white/52">+1 3074301457</div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl">
+                  <MapPin className="mb-3 h-5 w-5 text-[#38bdf8]" />
+                  <div className="text-sm font-semibold text-white">Location</div>
+                  <div className="text-sm text-white/52">
+                    1603 Capitol Ave Ste 413 E328 Cheyenne, WY 82001
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#8b2df2]/20 to-[#38bdf8]/10 p-5 backdrop-blur-xl">
+                  <Sparkles className="mb-3 h-5 w-5 text-[#b9abff]" />
+                  <div className="text-sm font-semibold text-white">First Response</div>
+                  <div className="mt-2 flex items-center gap-2 text-sm text-white/56">
+                    <Clock className="h-4 w-4" />
+                    Within 24 hours
+                  </div>
+                </div>
+              </motion.div>
+            }
+          />
         </div>
       </section>
       <Footer />

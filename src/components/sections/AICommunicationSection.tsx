@@ -32,20 +32,23 @@ const AICommunicationSection = () => {
   }, [revealed]);
 
   return (
-    <section className="relative py-8 md:py-12">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-6">
+    <section id="ai-communication" className="relative w-full py-8 md:py-10">
+      <div
+        ref={ref}
+        className={`reveal ${revealed ? "revealed" : ""} relative z-10 mx-auto grid w-full max-w-5xl items-center gap-8 px-6 md:grid-cols-[0.92fr_1.08fr] md:px-10`}
+      >
+        <div className="text-center md:text-left">
           <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 04</span>
-          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mt-3 mb-4 text-foreground">
             AI Communication
           </h2>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+          <p className="stage-desc mx-auto max-w-xl text-sm leading-7 md:mx-0 md:text-[15px]">
             A specially <b>trained</b> <b>AI chatbot</b> for your company is <b>integrated</b> into <b>WhatsApp</b>, social media DMs, and your website chat. It communicates like a <b>real</b> team member, conducts voice conversations using <b>AI voice</b> when needed, and can talk to <b>hundreds of people</b> simultaneously to convert cold and warm audiences into <b>warm</b> leads
           </p>
         </div>
 
-        {/* Chat */}
-        <div className="glass-strong rounded-2xl p-4 max-w-md mx-auto mb-4">
+        <div className="mx-auto w-full max-w-xl md:mx-0">
+        <div className="glass-strong rounded-2xl p-4 mb-4">
           <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-border">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
               <Bot className="w-4 h-4 text-primary" />
@@ -107,12 +110,11 @@ const AICommunicationSection = () => {
           </div>
         </div>
 
-        {/* Voice Agent */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 3 }}
-          className="glass-strong rounded-2xl p-4 max-w-[240px] mx-auto text-center">
+          className="glass-strong rounded-2xl p-4 max-w-[260px] mx-auto text-center">
           
           <div className="relative w-14 h-14 mx-auto mb-3">
             <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse-glow" />
@@ -135,6 +137,7 @@ const AICommunicationSection = () => {
             Custom AI chatbot & voice agent for your brand
           </p>
         </motion.div>
+        </div>
       </div>
     </section>);
 

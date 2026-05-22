@@ -1,147 +1,141 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useState, useEffect } from "react";
 
 const initialStages = [
-{
-  title: "Contacted",
-  color: "bg-blue-50 border-blue-200",
-  dot: "bg-blue-400",
-  cards: [
-  { name: "Thomas W.", company: "Weber GmbH" },
-  { name: "Marie D.", company: "Dupont Design" }]
-
-},
-{
-  title: "Meeting Scheduled",
-  color: "bg-violet-50 border-violet-200",
-  dot: "bg-violet-400",
-  cards: [
-  { name: "James C.", company: "Carter & Co" },
-  { name: "Elena R.", company: "Rossi Int." }]
-
-},
-{
-  title: "Proposal Sent",
-  color: "bg-amber-50 border-amber-200",
-  dot: "bg-amber-400",
-  cards: [
-  { name: "Hans M.", company: "Müller AG" }]
-
-},
-{
-  title: "Follow Up",
-  color: "bg-emerald-50 border-emerald-200",
-  dot: "bg-emerald-400",
-  cards: [
-  { name: "Sarah K.", company: "Kraft Ltd" }]
-
-}];
-
+  {
+    title: "Contacted",
+    columnClass: "stage-crm-blue",
+    cards: [
+      { name: "Thomas W.", company: "Weber GmbH" },
+      { name: "Marie D.", company: "Dupont Design" },
+    ],
+  },
+  {
+    title: "Meeting Scheduled",
+    columnClass: "stage-crm-violet",
+    cards: [
+      { name: "James C.", company: "Carter & Co" },
+      { name: "Elena R.", company: "Rossi Int." },
+    ],
+  },
+  {
+    title: "Proposal Sent",
+    columnClass: "stage-crm-amber",
+    cards: [{ name: "Hans M.", company: "Muller AG" }],
+  },
+  {
+    title: "Follow Up",
+    columnClass: "stage-crm-emerald",
+    cards: [{ name: "Sarah K.", company: "Kraft Ltd" }],
+  },
+];
 
 const CRMPipelineSection = () => {
   const { ref, revealed } = useScrollReveal();
   const [stages, setStages] = useState(initialStages);
-  const [movingCard, setMovingCard] = useState<{stageIdx: number;cardIdx: number;} | null>(null);
+  const [movingCard, setMovingCard] = useState<{ stageIdx: number; cardIdx: number } | null>(null);
 
   useEffect(() => {
     if (!revealed) return;
     const interval = setInterval(() => {
       setStages((prev) => {
-        // Find stages that have cards
-        const nonEmpty = prev.map((s, i) => ({ idx: i, count: s.cards.length })).filter(s => s.count > 0);
+        const nonEmpty = prev.map((stage, idx) => ({ idx, count: stage.cards.length })).filter((stage) => stage.count > 0);
         if (nonEmpty.length === 0) return prev;
 
-        // Pick a random non-empty stage
         const source = nonEmpty[Math.floor(Math.random() * nonEmpty.length)];
         const fromIdx = source.idx;
-
-        // Pick a random different destination (can go forward or backward)
-        const possibleTargets = prev.map((_, i) => i).filter(i => i !== fromIdx);
+        const possibleTargets = prev.map((_, idx) => idx).filter((idx) => idx !== fromIdx);
         const toIdx = possibleTargets[Math.floor(Math.random() * possibleTargets.length)];
-
         const cardIdx = Math.floor(Math.random() * prev[fromIdx].cards.length);
         const card = prev[fromIdx].cards[cardIdx];
 
         setMovingCard({ stageIdx: fromIdx, cardIdx });
-        setTimeout(() => setMovingCard(null), 600);
+        window.setTimeout(() => setMovingCard(null), 600);
 
-        const updated = prev.map((s, i) => {
-          if (i === fromIdx) return { ...s, cards: s.cards.filter((_, ci) => ci !== cardIdx) };
-          if (i === toIdx) return { ...s, cards: [...s.cards, card] };
-          return s;
+        return prev.map((stage, idx) => {
+          if (idx === fromIdx) return { ...stage, cards: stage.cards.filter((_, currentIdx) => currentIdx !== cardIdx) };
+          if (idx === toIdx) return { ...stage, cards: [...stage.cards, card] };
+          return stage;
         });
-        return updated;
       });
     }, 2500);
+
     return () => clearInterval(interval);
   }, [revealed]);
 
   return (
-    <section className="relative py-8 md:py-12">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-6">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-semibold">Stage 07</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display mt-2 mb-2.5 text-foreground">
-            CRM Pipeline
-          </h2>
-          <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-            Track the entire process from a <b>single panel</b> built specifically for you. Chatbot conversations, ad statistics, messages, and comments are collected in one place, so you <b>don't need</b> any additional <b>CRM tools</b>. When you <b>wake up</b>, you can see which customers were contacted, which meetings took place, and which sales were completed — all <b>automatically</b> updated in your CRM by <b>AI automations</b> running <b>24 hours</b> a day.
+    <section id="crm-pipeline" className="relative w-full py-8 md:py-10">
+      <div
+        ref={ref}
+        className={`reveal ${revealed ? "revealed" : ""} relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 px-6 md:grid-cols-[0.82fr_1.18fr] md:px-10`}
+      >
+        <div className="text-center md:text-left">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#b9abff]">Stage 07</span>
+          <h2 className="mt-3 mb-4 font-display text-3xl font-bold text-white md:text-4xl">CRM Pipeline</h2>
+          <p className="stage-desc mx-auto max-w-xl text-sm leading-7 md:mx-0 md:text-[15px]">
+            Track the entire process from a <b>single panel</b> built specifically for you. Chatbot conversations,
+            ad statistics, messages, and comments are collected in one place, so you <b>don&apos;t need</b> any
+            additional <b>CRM tools</b>. When you <b>wake up</b>, you can see which customers were contacted, which
+            meetings took place, and which sales were completed - all <b>automatically</b> updated in your CRM by{" "}
+            <b>AI automations</b> running <b>24 hours</b> a day.
           </p>
         </div>
 
-        <div className="overflow-x-auto pb-2">
-          <div className="flex gap-3 min-w-[640px]">
-            {stages.map((stage, si) =>
-            <motion.div
-              key={stage.title}
-              initial={{ opacity: 0, y: 15 }}
-              animate={revealed ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: si * 0.12 }}
-              className={`flex-1 rounded-xl p-3.5 border ${stage.color}`}>
-              
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`w-2 h-2 rounded-full ${stage.dot}`} />
-                  <span className="text-sm font-semibold text-foreground">{stage.title}</span>
-                  <span className="ml-auto text-xs text-muted-foreground">{stage.cards.length}</span>
+        <div className="stage-crm-board overflow-x-auto pb-2">
+          <div className="flex min-w-[680px] gap-4 md:gap-5">
+            {stages.map((stage, stageIdx) => (
+              <motion.div
+                key={stage.title}
+                initial={{ opacity: 0, y: 18, rotateX: 7 }}
+                animate={revealed ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+                transition={{ delay: stageIdx * 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                className={`stage-crm-column flex-1 rounded-2xl border p-4 ${stage.columnClass}`}
+              >
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="stage-crm-dot" />
+                  <span className="text-sm font-semibold text-white">{stage.title}</span>
+                  <span className="ml-auto rounded-full bg-white/8 px-2 py-0.5 text-xs text-white/54">
+                    {stage.cards.length}
+                  </span>
                 </div>
-                <div className="space-y-2 min-h-[80px]">
-                  {stage.cards.map((card, ci) =>
-                <motion.div
-                  key={card.name}
-                  layout
-                  initial={{ opacity: 0, x: si > 0 ? -10 : 0 }}
-                  animate={{
-                    opacity: movingCard?.stageIdx === si && movingCard?.cardIdx === ci ? 0.4 : 1,
-                    x: 0,
-                    scale: movingCard?.stageIdx === si && movingCard?.cardIdx === ci ? 0.95 : 1
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-background rounded-lg p-2.5 shadow-sm border border-border/40">
-                  
-                      <div className="text-sm font-medium text-foreground">{card.name}</div>
-                      <div className="text-xs text-muted-foreground">{card.company}</div>
+                <div className="min-h-[92px] space-y-2.5">
+                  {stage.cards.map((card, cardIdx) => (
+                    <motion.div
+                      key={`${card.name}-${cardIdx}`}
+                      layout
+                      initial={{ opacity: 0, x: stageIdx > 0 ? -10 : 0 }}
+                      animate={{
+                        opacity: movingCard?.stageIdx === stageIdx && movingCard?.cardIdx === cardIdx ? 0.4 : 1,
+                        x: 0,
+                        scale: movingCard?.stageIdx === stageIdx && movingCard?.cardIdx === cardIdx ? 0.95 : 1,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="rounded-xl border border-white/10 bg-[#0c0a16]/88 p-3 shadow-[0_10px_28px_rgba(0,0,0,0.24)]"
+                    >
+                      <div className="text-sm font-medium text-white">{card.name}</div>
+                      <div className="text-xs text-white/50">{card.company}</div>
                     </motion.div>
-                )}
+                  ))}
                 </div>
               </motion.div>
-            )}
+            ))}
           </div>
         </div>
 
-        {revealed &&
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.7, 0.7, 0] }}
-          transition={{ delay: 1.5, duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          className="flex items-center justify-center mt-3 text-xs text-primary font-medium">
-          
-            ← Cards move automatically between stages →
+        {revealed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.72, 0.72, 0] }}
+            transition={{ delay: 1.5, duration: 2, repeat: Infinity, repeatDelay: 3 }}
+            className="mt-4 flex items-center justify-center text-xs font-medium text-[#b9abff]"
+          >
+            Cards move automatically between stages
           </motion.div>
-        }
+        )}
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default CRMPipelineSection;

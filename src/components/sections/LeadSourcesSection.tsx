@@ -18,9 +18,12 @@ const LeadSourcesSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section id="lead-sources" className="relative py-8 md:py-12">
-      <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10`}>
-        <div className="text-center mb-6">
+    <section id="lead-sources" className="relative w-full py-8 md:py-10">
+      <div
+        ref={ref}
+        className={`reveal ${revealed ? "revealed" : ""} relative z-10 mx-auto grid w-full max-w-5xl items-center gap-8 px-6 md:grid-cols-[0.92fr_1.08fr] md:px-10`}
+      >
+        <div className="text-center md:text-left">
           <motion.span
             initial={{ opacity: 0 }}
             animate={revealed ? { opacity: 1 } : {}}
@@ -28,13 +31,18 @@ const LeadSourcesSection = () => {
             
             Stage 01
           </motion.span>
-          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2 mb-2.5 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mt-3 mb-4 text-foreground">
             Lead Sources
           </h2>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto"><b>We build</b> your digital customer acquisition infrastructure. <b>Google, Meta, and LinkedIn</b> traffic channels are activated by our <b>professional team</b>, and all your social media accounts are <b>integrated into a central panel</b>. Website forms, social media messages, and all other communications are handled by <b>AI customer</b> service and automatically recorded in your <b>CRM</b> system.</p>
+          <p className="stage-desc mx-auto max-w-xl text-sm leading-7 md:mx-0 md:text-[15px]">
+            <b>We build</b> your digital customer acquisition infrastructure. <b>Google, Meta, and LinkedIn</b>{" "}
+            traffic channels are activated by our <b>professional team</b>, and all your social media accounts are{" "}
+            <b>integrated into a central panel</b>. Website forms, social media messages, and all other communications
+            are handled by <b>AI customer</b> service and automatically recorded in your <b>CRM</b> system.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-md mx-auto">
+        <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-4 md:mx-0">
           {revealed && sources.map((s) =>
           <GlowingNode key={s.label} label={s.label} icon={s.icon} delay={s.delay} />
           )}

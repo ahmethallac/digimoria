@@ -17,7 +17,7 @@ const ProcessHeadingSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 1, 1, 1, 0.3]);
 
   return (
-    <div ref={containerRef} className="relative py-6 md:py-8 overflow-hidden">
+    <div ref={containerRef} className="relative overflow-hidden py-2 md:py-4">
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -38,7 +38,7 @@ const ProcessHeadingSection = () => {
         {/* Pill badge */}
         <motion.div
           style={{ y: y2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-muted-foreground tracking-widest uppercase mb-6"
+          className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#9b87f5]/25 bg-[#9b87f5]/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[#b9abff]"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
           Our Process
@@ -47,15 +47,12 @@ const ProcessHeadingSection = () => {
         {/* Main heading */}
         <motion.h2
           style={{ y: y1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold font-display leading-[1.1] tracking-tight mb-4"
+          className="mb-2 font-display text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.7rem]"
         >
-          <span className="text-foreground">How Does the </span>
-          <span className="bg-gradient-to-r from-primary to-neon-blue bg-clip-text text-transparent">
-            Setup Process
-          </span>
-          <span className="text-foreground"> Work?</span>
+          How Does the{" "}
+          <span className="font-normal text-[#b9abff]">Setup Process</span> Work?
           <br />
-          <span className="text-muted-foreground/70 text-[0.65em] font-semibold">
+          <span className="text-[0.62em] font-semibold text-white/78">
             Step by Step.
           </span>
         </motion.h2>
@@ -63,13 +60,13 @@ const ProcessHeadingSection = () => {
         {/* Subtle divider line */}
         <motion.div
           style={{ y: y2 }}
-          className="w-16 h-[2px] mx-auto mt-6 mb-8 bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+          className="mx-auto mb-3 mt-4 h-[2px] w-16 bg-gradient-to-r from-transparent via-[#9b87f5]/45 to-transparent"
         />
 
         {/* Animated arrow */}
         <motion.div
           style={{ y: y2 }}
-          className="flex flex-col items-center gap-1"
+          className="hidden flex-col items-center gap-1 md:flex"
         >
           {[0, 1, 2].map((i) => (
             <motion.div
@@ -83,7 +80,7 @@ const ProcessHeadingSection = () => {
               }}
             >
               <ChevronDown
-                className="text-primary"
+                className="text-[#9b87f5]"
                 size={i === 1 ? 22 : 18}
                 strokeWidth={i === 1 ? 2.5 : 1.5}
               />

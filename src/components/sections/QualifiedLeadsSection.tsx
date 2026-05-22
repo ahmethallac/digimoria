@@ -6,12 +6,12 @@ const QualifiedLeadsSection = () => {
   const { ref, revealed } = useScrollReveal();
 
   return (
-    <section className="relative py-12 md:py-16">
+    <section id="proof" className="relative py-12 md:py-16">
       <div ref={ref} className={`reveal ${revealed ? "revealed" : ""} relative z-10 text-center`}>
         <h2 className="text-2xl md:text-4xl font-bold font-display mt-2 mb-3 text-foreground">
           Same Budget — 30× More Qualified Meetings
         </h2>
-        <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-8">
+        <p className="stage-desc mx-auto mb-8 max-w-lg text-sm leading-relaxed">
           See the difference between traditional advertising and DigiMoria's intelligent system
         </p>
 
